@@ -1,0 +1,106 @@
+{
+  "case": "task1_worn",
+  "editor": "gpt-image-2",
+  "provider": "openrouter",
+  "packshot": "case1_packshot.jpg",
+  "packshot_sha12": "d4308b40e990",
+  "manifest_declared_before_generation": true,
+  "manifest": [
+    {
+      "id": "upper_arigato",
+      "expected": 1,
+      "material_mode": "albedo (gold on brown suede)",
+      "packshot_box": [
+        793,
+        1309,
+        1091,
+        1448
+      ],
+      "spelling": "ARIGATO",
+      "letters": 7,
+      "geometry": "fine-stroked serif, gold, small, on the lateral side below the lace holes",
+      "checkable": "yes \u2014 stroke IoU vs the extracted asset, plus a spelling specialist"
+    },
+    {
+      "id": "midsole_arigato",
+      "expected": 1,
+      "material_mode": "relief (debossed rubber, same colour)",
+      "packshot_box": [
+        200,
+        1660,
+        700,
+        1810
+      ],
+      "spelling": "ARIGATO",
+      "letters": 7,
+      "geometry": "debossed into the dark midsole, lateral side, toward the heel",
+      "checkable": "presence by eye only. This pipeline cannot represent or repair a relief mark; the earlier automatic presence detector scored a blank band higher than one that visibly reads ARIGATO. Declared so its loss is visible, not because we can score it."
+    },
+    {
+      "id": "panel_layout",
+      "expected": 1,
+      "material_mode": "colour blocking",
+      "geometry": "dark brown suede body; rust/orange suede overlays at the toe and heel; white/cream heel tab",
+      "checkable": "qualitative only \u2014 no automatic panel check is implemented"
+    },
+    {
+      "id": "sole_silhouette",
+      "expected": 1,
+      "material_mode": "structure + colour",
+      "geometry": "dark brown midsole over a gum/tan outsole with a ridged tread strip",
+      "checkable": "qualitative only"
+    },
+    {
+      "id": "lacing",
+      "expected": 1,
+      "material_mode": "structure",
+      "geometry": "dark brown flat laces, ~5 visible eyelet pairs, metal-tipped aglet",
+      "checkable": "qualitative only \u2014 eyelet count by eye"
+    },
+    {
+      "id": "stitching",
+      "expected": 1,
+      "material_mode": "structure",
+      "geometry": "visible contrast stitching around the panel seams and the toe overlay",
+      "checkable": "qualitative only"
+    }
+  ],
+  "success_criteria": {
+    "primary": "Is the upper ARIGATO wordmark present, correctly spelled, and geometrically close to the packshot asset in a WORN shot?",
+    "secondary": "Is the midsole ARIGATO still present at all?",
+    "mechanism_question": "Does the deterministic protected-mark repair transfer from the product shot to the worn shot, or does it break on the new pose, scale and lighting?",
+    "hard_stop": "If no usable worn baseline exists after 2 composition attempts or ~90 minutes, stop and report the failure. Do not iterate toward a flattering sample."
+  },
+  "max_attempts": 2,
+  "attempts": [
+    {
+      "name": "a1_packshot_only",
+      "prompt": "Full-colour editorial fashion photograph, cropped from the knee down, of a person standing on a sunlit concrete pavement wearing plain straight-leg dark denim jeans and these exact sneakers. Natural daylight from the left, shallow depth of field, camera at ankle height, the shoes large and sharp in frame. Photographic, not illustrated. The person is a synthetic 3D-rendered mannequin-like figure. Do not depict a recognisable real individual. Only legs and footwear are in frame.",
+      "n_refs": 1,
+      "status": "ok",
+      "output_shape": [
+        1484,
+        1060,
+        3
+      ],
+      "output_sha12": "e7cc222e0e37",
+      "latency_s": 48.1,
+      "cost_usd_estimated": 0.08
+    },
+    {
+      "name": "a2_with_markref",
+      "prompt": "Full-colour editorial fashion photograph, cropped from the knee down, of a person standing on a sunlit concrete pavement wearing plain straight-leg dark denim jeans and these exact sneakers. Natural daylight from the left, shallow depth of field, camera at ankle height, the shoes large and sharp in frame. Photographic, not illustrated. The person is a synthetic 3D-rendered mannequin-like figure. Do not depict a recognisable real individual. Only legs and footwear are in frame. The second reference image is the exact gold ARIGATO wordmark that appears on the lateral side of the shoe. Reproduce it exactly; do not restyle or re-letter it.",
+      "n_refs": 2,
+      "status": "ok",
+      "output_shape": [
+        1484,
+        1060,
+        3
+      ],
+      "output_sha12": "cdb060433215",
+      "latency_s": 56.3,
+      "cost_usd_estimated": 0.08
+    }
+  ],
+  "cost_usd_estimated_total": 0.16
+}

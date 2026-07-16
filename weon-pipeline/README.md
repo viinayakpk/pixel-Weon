@@ -42,6 +42,7 @@ python -m experiments.identity_manifest
 python -m experiments.material_probe
 python -m experiments.relief_probe
 python -m experiments.task1_compare
+python -m experiments.task1_worn_compare    # worn case: 0.1268 -> 0.7485, no API calls
 python -m experiments.human_eval --report   # recompute aggregate from the saved response
 python run.py evidence
 ```
@@ -61,12 +62,19 @@ $env:WEON_OUT_SUFFIX="replica"
 python -m experiments.task4_compare     # 10 calls: baseline + ledger
 
 $env:WEON_RUN_ID="replica"
-python -m experiments.task1_generate    # 2 calls
+python -m experiments.task1_generate       # 2 calls
+python -m experiments.task1_worn_generate  # 2 calls, budget enforced in code
+python -m experiments.spelling_specialist  # 12 VLM calls (4 controls x 3 repeats)
+python -m experiments.worn_certificate     # 6 VLM calls; needs worn_compare.json
+python -m experiments.grounding_retest     # 1 VLM call
 ```
+
+The three specialist experiments refuse to run without a provider rather than emitting UNKNOWN for
+every case — a 0/4 that reports a missing API key, not a fact about the specialist.
 
 Do not expect a deterministic reproduction: the editors expose no usable seed. Promote a new run
 to canonical evidence only as a deliberate manual review step. Per-run costs are configured
-estimates. `outputs/actual_cost.json` records a $3.7326 whole-key provider charge, but its scope also
+estimates. `outputs/actual_cost.json` records a $3.8512 whole-key provider charge, but its scope also
 includes smoke and failed/aborted activity, so it is not a per-experiment invoice.
 
 ## What ran versus what is a prototype

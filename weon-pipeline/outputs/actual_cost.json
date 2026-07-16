@@ -1,5 +1,5 @@
 {
-  "actual_usd_billed_by_provider": 3.7326,
+  "actual_usd_billed_by_provider": 3.8512,
   "estimated_usd_from_our_price_table": {
     "task4/metrics.json": 0.8,
     "task4_nano/metrics.json": 1.5,
@@ -10,9 +10,9 @@
     "task1/judge_calibration.json": 0.064,
     "total": 3.494
   },
-  "drift_pct": -6.4,
+  "drift_pct": -9.3,
   "budget_limit_usd": 20,
-  "remaining_usd": 16.27,
+  "remaining_usd": 16.15,
   "drift_direction": "negative = our table UNDER-estimates what the provider charged",
   "note": "`actual` is what the provider charged for everything on this key, including smoke tests and failed/aborted activity not cleanly represented in retained experiment receipts. So this is NOT a clean per-experiment reconciliation: the scopes differ, and the gap cannot be interpreted as a price-table error. Per-image prices in config.py remain unverified individually."
 }

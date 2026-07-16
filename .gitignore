@@ -4,12 +4,16 @@
 !.env.example
 *.key
 
-# The task briefs are weon's own documents — no reason to send them back.
+# The task briefs are weon's own documents ï¿½ no reason to send them back.
 *.pdf
 
 # Working material, not part of the submission (see _archive/README.md)
 _archive/
 weon-submission.zip
+
+# Personal interview prep. Never push this: the repo link goes to the reviewer, and this file
+# is written to me, not to them.
+REPORT_PERSONAL.md
 
 # Python
 __pycache__/

@@ -82,6 +82,47 @@ add(
     "outputs/task1/ceiling_s3_negatives.png",
 )
 
+# Task 1, worn case: the brief's actual framing (model wearing the product), manifest declared
+# before generation.
+add(
+    selected,
+    "outputs/task1_worn/FINDINGS.md",
+    "outputs/task1_worn/generate.json",
+    "outputs/task1_worn/a1_packshot_only.png",
+    "outputs/task1_worn/a2_with_markref.png",
+    "outputs/task1_worn/mark_reference.png",
+    "outputs/task1_worn/asset_arigato.png",
+    "outputs/task1_worn/cond_A_model_only.png",
+    "outputs/task1_worn/cond_A_model_only_rectified.png",
+    "outputs/task1_worn/cond_B_cleared_graft.png",
+    "outputs/task1_worn/cond_B_cleared_graft_rectified.png",
+    "outputs/task1_worn/worn_marks_audit.png",
+    "outputs/task1_worn/_grid_a2_upper.png",
+    "outputs/task1_worn/worn_rectified_compare.png",
+    "outputs/task1_worn/worn_compare.json",
+    "outputs/task1_worn/worn_certificate.json",
+    "outputs/task1_worn/ocr_*.png",
+)
+
+# The spelling specialist and its four known-answer controls.
+add(
+    selected,
+    "outputs/spelling/spelling.json",
+    "outputs/spelling/c1_pristine.png",
+    "outputs/spelling/c2_nano_t5.png",
+    "outputs/spelling/c3_illegible.png",
+    "outputs/spelling/c4_typography.png",
+)
+
+# Grounding retest: the locator returned 2 of 4 pockets. Negative result, kept.
+add(
+    selected,
+    "outputs/grounding/FINDINGS.md",
+    "outputs/grounding/grounding.json",
+    "outputs/grounding/locator_overlay.png",
+    "outputs/grounding/missed_pockets_verification.png",
+)
+
 # Task 4 main run and derived evidence.
 add(
     selected,

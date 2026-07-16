@@ -1,0 +1,210 @@
+{
+  "specialist": "google/gemini-2.5-flash",
+  "provider": "openrouter",
+  "prompt": "This is a close crop of a garment or footwear photograph. Transcribe any brand text you can read in it, exactly as it appears, letter for letter.\nIf the text is too blurred, too small, or too distorted for you to read the letters with confidence, reply with exactly UNREADABLE. Do not guess a plausible brand name.\nReply with only the transcription, or only UNREADABLE. No explanation.",
+  "repeats": 3,
+  "protocol": "open transcription, compared in code",
+  "not_a_calibration": "4 known-answer inputs. This establishes behaviour on these four, not general OCR accuracy.",
+  "controls": {
+    "c1_pristine": {
+      "expected_string": "A DAY'S MARCH",
+      "expect_verdict": "PASS",
+      "source": "task4_nano/step0_original.png",
+      "tests": "the specialist reads an undamaged label",
+      "crop_box": [
+        380,
+        198,
+        500,
+        272
+      ],
+      "input_sha12": "3d3d8de9c5a4",
+      "input_shape": [
+        74,
+        120,
+        3
+      ],
+      "observed_verdict": "PASS",
+      "stable_across_repeats": true,
+      "as_specified": true,
+      "runs": [
+        {
+          "raw": "A DAY'S MARCH",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed \"A DAY'S MARCH\" == expected"
+        },
+        {
+          "raw": "A DAY'S MARCH",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed \"A DAY'S MARCH\" == expected"
+        },
+        {
+          "raw": "A DAY'S MARCH",
+          "status": "ok",
+          "latency_s": 1.2,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed \"A DAY'S MARCH\" == expected"
+        }
+      ]
+    },
+    "c2_nano_t5": {
+      "expected_string": "A DAY'S MARCH",
+      "expect_verdict": "FAIL",
+      "source": "task4_nano/naive_step5.png (paid artefact)",
+      "tests": "the specialist reports a real, unstaged corruption instead of rubber-stamping",
+      "crop_box": [
+        380,
+        198,
+        500,
+        272
+      ],
+      "input_sha12": "b600d7c77864",
+      "input_shape": [
+        74,
+        120,
+        3
+      ],
+      "observed_verdict": "FAIL",
+      "stable_across_repeats": true,
+      "as_specified": true,
+      "runs": [
+        {
+          "raw": "A DATT MARCH",
+          "status": "ok",
+          "latency_s": 0.9,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "fail",
+          "reason": "transcribed 'A DATT MARCH' != expected \"A DAY'S MARCH\""
+        },
+        {
+          "raw": "A DATT MARCH",
+          "status": "ok",
+          "latency_s": 1.0,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "fail",
+          "reason": "transcribed 'A DATT MARCH' != expected \"A DAY'S MARCH\""
+        },
+        {
+          "raw": "A DATT MARCH",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "fail",
+          "reason": "transcribed 'A DATT MARCH' != expected \"A DAY'S MARCH\""
+        }
+      ]
+    },
+    "c3_illegible": {
+      "expected_string": "A DAY'S MARCH",
+      "expect_verdict": "UNKNOWN",
+      "source": "c1, resampled 1/8 and back (legibility destroyed)",
+      "tests": "the specialist ABSTAINS instead of guessing a plausible brand",
+      "crop_box": [
+        380,
+        198,
+        500,
+        272
+      ],
+      "input_sha12": "36ba7f5bf843",
+      "input_shape": [
+        74,
+        120,
+        3
+      ],
+      "observed_verdict": "UNKNOWN",
+      "stable_across_repeats": true,
+      "as_specified": true,
+      "runs": [
+        {
+          "raw": "UNREADABLE",
+          "status": "ok",
+          "latency_s": 1.7,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "unknown",
+          "reason": "specialist abstained: cannot read the letters"
+        },
+        {
+          "raw": "UNREADABLE",
+          "status": "ok",
+          "latency_s": 1.2,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "unknown",
+          "reason": "specialist abstained: cannot read the letters"
+        },
+        {
+          "raw": "UNREADABLE",
+          "status": "ok",
+          "latency_s": 0.9,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "unknown",
+          "reason": "specialist abstained: cannot read the letters"
+        }
+      ]
+    },
+    "c4_typography": {
+      "expected_string": "ARIGATO",
+      "expect_verdict": "PASS",
+      "source": "task1_worn/a2_with_markref.png (paid artefact), quad padded 26px",
+      "tests": "spelling PASSES on re-lettered output whose stroke IoU is 0.1268 \u2014 proves spelling alone cannot certify mark identity",
+      "crop_box": [
+        462,
+        962,
+        588,
+        1050
+      ],
+      "input_sha12": "36cc7c9fef18",
+      "input_shape": [
+        88,
+        126,
+        3
+      ],
+      "observed_verdict": "PASS",
+      "stable_across_repeats": true,
+      "as_specified": true,
+      "runs": [
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 0.8,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO' == expected"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 0.8,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO' == expected"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.5,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO' == expected"
+        }
+      ]
+    }
+  },
+  "c4_identity_resolution": {
+    "spelling_verdict": "PASS",
+    "stroke_iou_same_crop": 0.1268,
+    "geometry_verdict": "FAIL (threshold 0.35)",
+    "conclusion": "Spelling and geometry disagree on the same pixels, and both are right. The mark says ARIGATO and is not the ARIGATO mark. A gate with only a spelling specialist would commit a restyled logo; identity needs both, which is why the certificate keeps them as separate checks."
+  },
+  "summary": {
+    "controls_as_specified": "4/4",
+    "cost_usd_estimated": 0.018,
+    "claim_licensed": "On these four inputs the specialist passed a clean label, caught a real corruption, abstained when legibility was destroyed, and passed a correctly-spelled restyled mark that geometry rejects. It may now be wired into the gate for the brand_text check on THIS case.",
+    "claim_NOT_licensed": "General OCR accuracy. Any threshold. Any other brand, font, language or resolution. 4 inputs x 3 repeats is a probe."
+  }
+}

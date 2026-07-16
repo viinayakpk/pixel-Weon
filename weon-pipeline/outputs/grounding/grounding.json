@@ -1,0 +1,66 @@
+{
+  "question": "can an automatic locator find the region the turn-4 instruction names?",
+  "instruction": "Change the right chest pocket to tan canvas.",
+  "grounder": "google/gemini-2.5-flash",
+  "protocol": "enumerate ALL pockets (no count supplied); score against BOTH readings of 'right'; box_2d is a rectangle and is NOT treated as a mask",
+  "declared_image_right": [
+    580,
+    450,
+    690,
+    570
+  ],
+  "declared_image_left": [
+    235,
+    465,
+    325,
+    565
+  ],
+  "n_returned": 2,
+  "raw_response": "```json\n[\n  {\"box_2d\": [629, 219, 806, 432], \"mask\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAAAAAB5Gfe6AAABzklEQVR42u3byw6CQAwF0P7/T1fjI+EhiJGg4Z5u3IhOj7czsLBKKaV+WH2t52tX31+XanzZ/YLDVjlZw2g57y5fb+u4+tDrtu5/WftuBp/+4iet8PbXBDql4gXiE7BkEA7QWQUgu/25QHr/AEwAgWwACZAAAAAAAAAAAACATAABkAAAAOwBAIwAAAAAAAAAAABAHEADMAIS4GkQAAAADgGngAhIgAAAMAISIAESAAAAAABOAQAAAAAAAAAAAABnB2gAALIFWgQAAHAfIAAAAAAAAAAAAACeBgEAAAAAQBJAAwBgD5AAAAAA2AMBAMgEKAkAAAAAAAAAAAAAAAAAgDyABgAAgE1QAgAAAAAAAAAA7oMAALAFhAnEAzgGAQAAAMAxKABuhQEAsAdIAAAjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4IUADAAAAAAAAAAAAAAAAAAAAcQANAAAAAAAAAAAAAAAAAAAAAAAAAACAJICWAAAAANgEARgBAEYAgBEAYAQEIA/AP4YAAMjuH0B6/6kGAKIzULOaviGs/QdCfVf9fZLqxRm97bs3dt5bP3CHGnzly1arj1rE8L6/lBrWBf42HOfxNoq5AAAAAElFTkSuQmCC\", \"label\": \"lower pocket on image-left\"},\n  {\"box_2d\": [629, 539, 814, 760], \"mask\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAAAAAB5Gfe6AAABw0lEQVR42u3ciwqCQBAF0Pn/n54iEx8bmhKVO2eIQDNizl7GDaIIpVRE5v3xqPF4cVhBYNZzrmskGi7cpYzF9Xl0KdrP/kYALlvtSk4trVp8Z/X7r87W/6xCk46aVb3/5pYHoKhAVhcAUF0gRUACAAAAAAAAAAAAAADwXUACJAAAADMAAAAAAAAAAADATlACJAAAAAAAAAAAAAAAAAAAAHQK4AfzAAAAAOA2CAAAAENQAiQAAAAAAAAAAACgFkBIAAAAAAAAAAAAAAAAFQFSAgAAMAMAAAAAAAAAAAAAAAAAAAAAAAAAAABQBSAlAAAAAAAAAAAAAAAAAAAAAAAAAACAUgApAQAAAABQuH8AAADYCQIAYB8gAQAAmAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB9AaQESIAESAAAAGaABEgAAABmgARIAAAAAAAAAAAAgJ0gAAAAAAAAAAAAAAAAAAAAAAAAAAC9AvhzcQAAAAAAAABAXYAAAABAbYDCBFFdAACAbYKN89O7ns/DCxebq3OAGDuOtl6dO1GLD4z/6v+jjZ7l+XX7HdTRzm7nl+p74x14QgAAAABJRU5ErkJggg==\", \"label\": \"lower pocket on image-right\"}\n]\n```",
+  "latency_s": 3.2,
+  "cost_usd_estimated": 0.004,
+  "pockets": [
+    {
+      "label": "lower pocket on image-left",
+      "box_px": [
+        197,
+        707,
+        388,
+        906
+      ],
+      "area_px": 38009,
+      "iou_vs_declared_image_right": 0.0,
+      "overlap_px_image_right": 0,
+      "iou_vs_declared_image_left": 0.0,
+      "overlap_px_image_left": 0,
+      "area_ratio_vs_declared_image_right": 2.88,
+      "mask_returned": true,
+      "mask_px": 35396,
+      "mask_fill_of_box": 0.931
+    },
+    {
+      "label": "lower pocket on image-right",
+      "box_px": [
+        485,
+        707,
+        684,
+        915
+      ],
+      "area_px": 41392,
+      "iou_vs_declared_image_right": 0.0,
+      "overlap_px_image_right": 0,
+      "iou_vs_declared_image_left": 0.0,
+      "overlap_px_image_left": 0,
+      "area_ratio_vs_declared_image_right": 3.14,
+      "mask_returned": true,
+      "mask_px": 39789,
+      "mask_fill_of_box": 0.961
+    }
+  ],
+  "best_iou_vs_image_right": 0.0,
+  "best_iou_vs_image_left": 0.0,
+  "any_mask_returned": true,
+  "verified_by": "overlay rendered to locator_overlay.png and inspected by eye",
+  "verdict": "locator NOT usable for this instruction: no returned box overlaps EITHER reading of 'right chest pocket' above IoU 0.3. Ambiguity does not explain a miss on both.",
+  "recomposition": "not run: localization failed, and re-compositing through an unverified region would polish a mistake \u2014 the error the collar ablation already identified."
+}

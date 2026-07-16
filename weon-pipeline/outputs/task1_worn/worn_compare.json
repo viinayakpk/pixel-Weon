@@ -1,0 +1,103 @@
+{
+  "case": "task1_worn",
+  "generation": "a2_with_markref.png",
+  "generation_sha12": "cdb060433215",
+  "target_box": [
+    488,
+    988,
+    562,
+    1024
+  ],
+  "logo_box_in_packshot": [
+    793,
+    1309,
+    1091,
+    1448
+  ],
+  "quad_declared_by": "hand, from outputs/task1_worn/_grid_a2_upper.png",
+  "conditions": {
+    "A_model_only": {
+      "fidelity": {
+        "stroke_iou": 0.1268,
+        "ink_pct_ref": 10.34,
+        "ink_pct_test": 8.75,
+        "ink_area_ratio": 0.846,
+        "mark_colour_delta_e": 6.44
+      },
+      "certificate": {
+        "commit": false,
+        "status": "rejected",
+        "checks": {
+          "mark_geometry": {
+            "verdict": "fail",
+            "detail": "stroke IoU 0.1268 vs the brand mark",
+            "value": 0.1268
+          },
+          "mark_colour": {
+            "verdict": "pass",
+            "detail": "mark colour dE 6.44",
+            "value": 6.44
+          },
+          "photographic_naturalness": {
+            "verdict": "unknown",
+            "detail": "no calibrated specialist; routes to human review",
+            "value": null
+          },
+          "midsole_instance": {
+            "verdict": "unknown",
+            "detail": "relief mark: present by eye, but no working automatic detector",
+            "value": null
+          }
+        }
+      }
+    },
+    "B_cleared_graft": {
+      "fidelity": {
+        "stroke_iou": 0.7485,
+        "ink_pct_ref": 10.34,
+        "ink_pct_test": 10.59,
+        "ink_area_ratio": 1.023,
+        "mark_colour_delta_e": 8.13
+      },
+      "certificate": {
+        "commit": false,
+        "status": "review",
+        "checks": {
+          "mark_geometry": {
+            "verdict": "pass",
+            "detail": "stroke IoU 0.7485 vs the brand mark",
+            "value": 0.7485
+          },
+          "mark_colour": {
+            "verdict": "pass",
+            "detail": "mark colour dE 8.13",
+            "value": 8.13
+          },
+          "photographic_naturalness": {
+            "verdict": "unknown",
+            "detail": "no calibrated specialist; routes to human review",
+            "value": null
+          },
+          "midsole_instance": {
+            "verdict": "unknown",
+            "detail": "relief mark: present by eye, but no working automatic detector",
+            "value": null
+          }
+        }
+      }
+    }
+  },
+  "transfer": {
+    "product_shot_result": {
+      "A": 0.2127,
+      "B": 0.6705
+    },
+    "worn_result": {
+      "A": 0.1268,
+      "B": 0.7485
+    },
+    "question": "does the deterministic repair transfer from a product shot to a worn shot?",
+    "answer": "improves on the worn case: 0.1268 -> 0.7485",
+    "caveats": "One worn generation, one hand-declared quad, no replicates. The worn mark is ~74x36 px versus ~79x37 in the product shot, so this is not a resolution advantage. B is reference-derived, not a pixel copy."
+  }
+}
