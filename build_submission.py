@@ -33,7 +33,6 @@ add(
     "README.md",
     "requirements.txt",
     "requirements.pinned.txt",
-    "requirements-paid.txt",
     "run.py",
     "cases/*.py",
     "pipeline/*.py",

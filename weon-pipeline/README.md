@@ -21,8 +21,8 @@ pip install -r requirements.txt
 copy .env.example .env     # Windows; optional, only for paid regeneration
 ```
 
-`requirements.pinned.txt` records the exact offline QA environment. The optional fal.ai adapter
-uses `requirements-paid.txt`; OpenRouter needs only the core `requests` dependency.
+`requirements.pinned.txt` records the exact offline QA environment. OpenRouter needs only the core
+`requests` dependency; the optional fal.ai adapter additionally needs `pip install fal-client>=0.4`.
 
 `WEON_DRY_RUN=1` forces offline mode even if `.env` contains a key. Offline generation returns the
 input and reports N/A; it is never scored as a successful edit.
