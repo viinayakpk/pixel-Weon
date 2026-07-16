@@ -1,4 +1,4 @@
-# Constraint-preserving image workflows — Tasks 1 and 4
+# Constraint-preserving image workflows  Tasks 1 and 4
 
 Read [`../REPORT.md`](../REPORT.md) first. This repository contains the black-box generation
 adapters, offline evaluation, saved paid evidence and reproducible figures used in that report.
