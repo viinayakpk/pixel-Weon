@@ -1,0 +1,40 @@
+{
+  "editor": "gpt-image-2",
+  "provider": "openrouter",
+  "packshot": "case1_packshot.jpg",
+  "logo_box": [
+    793,
+    1309,
+    1091,
+    1448
+  ],
+  "runs": [
+    {
+      "name": "p1_plain",
+      "prompt": "Editorial product photograph of this exact sneaker on a smooth concrete surface, soft directional daylight from the left, shallow depth of field, side view.",
+      "n_refs": 1,
+      "status": "ok",
+      "output_shape": [
+        1484,
+        1060,
+        3
+      ],
+      "latency_s": 35.1,
+      "cost_usd_estimated": 0.08
+    },
+    {
+      "name": "p2_constrained",
+      "prompt": "Editorial product photograph of this exact sneaker on a smooth concrete surface, soft directional daylight from the left, shallow depth of field, side view. The gold brand mark on the side of the shoe must read exactly ARIGATO: seven capital letters A-R-I-G-A-T-O, gold serif type, no other text, correct spelling, same size and same position relative to the lace holes. Do not restyle, re-letter or re-space the mark. The second reference image is the exact brand mark.",
+      "n_refs": 2,
+      "status": "ok",
+      "output_shape": [
+        1484,
+        1060,
+        3
+      ],
+      "latency_s": 64.8,
+      "cost_usd_estimated": 0.08
+    }
+  ],
+  "cost_usd_estimated_total": 0.16
+}

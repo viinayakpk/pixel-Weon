@@ -1,0 +1,18 @@
+# Credentials — .env holds a live API key. Never commit it.
+.env
+.env.*
+!.env.example
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Retained source frames, receipts and report figures under outputs/ are intentional evidence.
+# Local logs and guard-test output are not part of the submission package.
+outputs/*_run.log
+outputs/**/run.log
+outputs/task4_guardtest/

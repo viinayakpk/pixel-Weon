@@ -1,0 +1,23 @@
+provider=openrouter editor=gpt-image-2 base=(1125, 900, 3)
+5 edits x 2 strategies = 10 calls
+
+[A] naive chaining (previous output -> next input)
+  turn 1: accepted  label_bitexact=  0.62% label_ssim=0.555 outside_bitexact=  0.65%
+  turn 2: accepted  label_bitexact=  0.11% label_ssim=0.364 outside_bitexact=  0.07%
+  turn 3: accepted  label_bitexact=  0.01% label_ssim=0.172 outside_bitexact=  0.02%
+  turn 4: accepted  label_bitexact=  0.02% label_ssim=0.134 outside_bitexact=  0.00%
+  turn 5: accepted  label_bitexact=  0.03% label_ssim=0.131 outside_bitexact=  0.00%
+
+[B] pixel edit ledger (declared mask, crop edit, composite accepted pixels)
+  turn 1: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=8.9; context_ssim=0.615
+  turn 2: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=8.6; context_ssim=0.751
+  turn 3: rejected  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=10.1; context_ssim=0.545 <min (damaged protected content)
+  turn 4: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=26.0; context_ssim=0.636
+  turn 5: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=14.4; context_ssim=0.712
+
+wrote C:\Users\vinay\weon project\weon-pipeline\outputs\task4/metrics.json  |  662.2s  |  $0.8

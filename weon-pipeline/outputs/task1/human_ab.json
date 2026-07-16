@@ -1,0 +1,56 @@
+{
+  "n_raters": 1,
+  "trials": 6,
+  "questions": {
+    "mark_fidelity": [
+      {
+        "a": "cond_A_model_only_rectified.png",
+        "b": "cond_B_hard_alpha_graft_rectified.png",
+        "orderings": 2,
+        "chosen": [
+          "cond_B_hard_alpha_graft_rectified.png",
+          "cond_B_hard_alpha_graft_rectified.png"
+        ],
+        "swap_consistent": true,
+        "winner": "cond_B_hard_alpha_graft_rectified.png",
+        "ground_truth": "cond_B_hard_alpha_graft_rectified.png",
+        "correct": true
+      }
+    ],
+    "naturalness": [
+      {
+        "a": "cond_A_model_only.png",
+        "b": "cond_B_hard_alpha_graft.png",
+        "orderings": 2,
+        "chosen": [
+          "cond_B_hard_alpha_graft.png",
+          "cond_B_hard_alpha_graft.png"
+        ],
+        "swap_consistent": true,
+        "winner": "cond_B_hard_alpha_graft.png"
+      },
+      {
+        "a": "cond_B_hard_alpha_graft.png",
+        "b": "cond_C_linear_relit_graft.png",
+        "orderings": 2,
+        "chosen": [
+          "cond_C_linear_relit_graft.png",
+          "cond_B_hard_alpha_graft.png"
+        ],
+        "swap_consistent": false,
+        "winner": "tie"
+      }
+    ]
+  },
+  "control": {
+    "note": "The mark_fidelity pair has a known answer by PROVENANCE: B is a geometric transform of the reference asset, A is the model's independent re-drawing. Not pixel identity \u2014 B is 0.00% bit-exact vs the reference after warping. It calibrates the human rater the same way it calibrated the VLM judge (S8), so the two are directly comparable.",
+    "human_correct": 1,
+    "human_total": 1,
+    "vlm_judge_correct_pct": 0.0
+  },
+  "limitations": [
+    "n = 1 rater, 3 pairs, 6 comparisons. This is a sanity check, not a study.",
+    "The rater is the author and is not blind to the project's hypothesis, only to which side each condition is on. A disinterested rater would be better.",
+    "Reported as a tie whenever the two orderings disagree \u2014 same rule as the VLM judge."
+  ]
+}

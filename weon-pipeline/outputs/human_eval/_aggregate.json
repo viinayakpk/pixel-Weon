@@ -1,0 +1,52 @@
+{
+  "n_raters": 1,
+  "raters": [
+    "alice"
+  ],
+  "questions": {
+    "q1_control": {
+      "answers": {
+        "alice": "LEFT"
+      },
+      "correct": "1/1",
+      "chose": [
+        "reference"
+      ],
+      "unanimous": true
+    },
+    "q2_fidelity": {
+      "answers": {
+        "alice": "RIGHT"
+      },
+      "correct": "1/1",
+      "chose": [
+        "B_graft"
+      ],
+      "unanimous": true
+    },
+    "q3_b_acceptable": {
+      "answers": {
+        "alice": "ACCEPT"
+      },
+      "unanimous": true
+    },
+    "q4_b_vs_c": {
+      "answers": {
+        "alice": "RIGHT"
+      },
+      "unanimous": true
+    },
+    "q5_task4_semantic": {
+      "answers": {
+        "alice": "YES"
+      },
+      "unanimous": true
+    }
+  },
+  "interpretation": {
+    "q1_is_an_attention_check": "q1_control shows the reference above two options, one of which IS the reference. It is easy by design and catches random clicking. Failing it discounts a rater; passing it does not establish they can discriminate at q2's difficulty.",
+    "q2_is_the_real_control": "q2 has an answer known by provenance (B is warped from the reference asset; A is the model's independent re-drawing). This is the question the VLM judge scored 0% on.",
+    "vs_vlm_judge": "The VLM judge scored 0% on the q2 fidelity question at every presentation scale (outputs/task1/judge_calibration.json).",
+    "scope": "n=1 raters, 5 questions. A sanity check, not a study. Sides are counterbalanced between raters; each pair is shown once per person."
+  }
+}

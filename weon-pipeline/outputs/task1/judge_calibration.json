@@ -1,0 +1,210 @@
+{
+  "judge_model": "google/gemini-2.5-flash",
+  "trials": 5,
+  "trials_are_not_independent": "Temperature was zero; repeated identical outcomes are one deterministic result, not five independent trials.",
+  "control": {
+    "question": "which reproduces the REFERENCE mark more faithfully?",
+    "known_answer": "B (grafted real asset; stroke IoU 0.670 vs 0.213)",
+    "why_known": "B is a geometric transform of the reference asset; A is the model's independent re-drawing. Known by provenance, not pixel identity: B is 0.00% bit-exact after warping.",
+    "trials": 5,
+    "winners": {
+      "tie": 5
+    },
+    "swap_consistent_pct": 0.0,
+    "ties_from_order_dependence": 5,
+    "correct_answer": "second",
+    "accuracy_pct": 0.0,
+    "wrong_pct": 0.0
+  },
+  "naturalness": {
+    "question": "which looks less digitally pasted?",
+    "ground_truth": null,
+    "trials": 5,
+    "winners": {
+      "tie": 4,
+      "first": 1
+    },
+    "swap_consistent_pct": 20.0,
+    "ties_from_order_dependence": 4
+  },
+  "resolution_control": {
+    "why": "Lanczos interpolation adds no information, so this sweep cannot rule out a resolution limit. It records only that this judge configuration did not improve when the isolated mark crops were presented larger.",
+    "sweep": [
+      {
+        "scale": "4x",
+        "size": "464x244",
+        "winners": {
+          "tie": 3
+        },
+        "correct_pct": 0.0,
+        "wrong_pct": 0.0,
+        "swap_consistent_pct": 0.0,
+        "raw": [
+          {
+            "order_1": "A",
+            "order_2": "A"
+          },
+          {
+            "order_1": "A",
+            "order_2": "A"
+          },
+          {
+            "order_1": "A",
+            "order_2": "A"
+          }
+        ]
+      },
+      {
+        "scale": "8x",
+        "size": "928x488",
+        "winners": {
+          "first": 3
+        },
+        "correct_pct": 0.0,
+        "wrong_pct": 100.0,
+        "swap_consistent_pct": 100.0,
+        "raw": [
+          {
+            "order_1": "A",
+            "order_2": "B"
+          },
+          {
+            "order_1": "A",
+            "order_2": "B"
+          },
+          {
+            "order_1": "A",
+            "order_2": "B"
+          }
+        ]
+      }
+    ]
+  },
+  "verdict": "NOT TRUSTWORTHY on this control",
+  "implication": "This judge configuration scored 0% on one isolated fidelity control at every presentation scale. The mechanism is unresolved, and this is not a claim about VLM judges in general. It is sufficient reason not to use this configuration as an automatic pass here; geometry remains deterministic and naturalness routes to review.",
+  "notes": [
+    "Every trial is swap-debiased: judged in both orderings, a win requires the same image to win both, disagreement is recorded as a tie (Judging the Judges, arXiv 2406.07791).",
+    "Under this temperature-zero run, a single-order presentation repeatedly selected A; these repeats are one deterministic outcome, not independent trials.",
+    "A calibrated deterministic geometry diagnostic is preferable for this narrow fidelity question; naturalness is a separate dimension.",
+    "Scope: one judge model, one mark, one pair. This is not a claim about VLM judges in general \u2014 it is a claim that THIS instrument failed THIS control, which is sufficient reason not to trust it here."
+  ],
+  "http_requests_estimated": 32,
+  "cost_usd_estimated": 0.064,
+  "cost_note": "Estimated as 32 HTTP requests at the script's stated $0.002/request; provider billing was not observed. Per-comparison values in raw records came from the older accounting implementation.",
+  "raw": {
+    "mark_fidelity": [
+      {
+        "kind": "mark_fidelity",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "mark_fidelity",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "mark_fidelity",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "mark_fidelity",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "mark_fidelity",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      }
+    ],
+    "naturalness": [
+      {
+        "kind": "naturalness",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "naturalness",
+        "winner": "first",
+        "reason": "consistent across both orderings (A/B)",
+        "raw": {
+          "order_1": "A",
+          "order_2": "B"
+        },
+        "swap_consistent": true,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "naturalness",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "naturalness",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      },
+      {
+        "kind": "naturalness",
+        "winner": "tie",
+        "reason": "order-dependent verdict (A/TIE) \u2014 recorded as a tie, not a win",
+        "raw": {
+          "order_1": "A",
+          "order_2": "TIE"
+        },
+        "swap_consistent": false,
+        "cost_usd_estimated": 0.002
+      }
+    ]
+  }
+}

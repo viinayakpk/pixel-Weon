@@ -1,0 +1,98 @@
+{
+  "scope": "one jacket, one five-edit chain per editor, no replicates or usable seeds",
+  "same_saved_case_verified": true,
+  "editors": {
+    "gpt-image-2": {
+      "naive_label_ssim": [
+        0.555244,
+        0.364235,
+        0.171808,
+        0.133543,
+        0.130715
+      ],
+      "naive_label_bit_exact_pct": [
+        0.619369,
+        0.112613,
+        0.011261,
+        0.022523,
+        0.033784
+      ],
+      "ledger_label_bit_exact_pct": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gate_v1_status": [
+        "accepted",
+        "accepted",
+        "rejected",
+        "accepted",
+        "accepted"
+      ],
+      "gate_v1_commits": 4,
+      "wall_clock_s": 662.2,
+      "configured_cost_estimate_usd": 0.8
+    },
+    "nano-banana-pro": {
+      "naive_label_ssim": [
+        0.886343,
+        0.859784,
+        0.829387,
+        0.79782,
+        0.763404
+      ],
+      "naive_label_bit_exact_pct": [
+        0.281532,
+        0.045045,
+        0.022523,
+        0.022523,
+        0.011261
+      ],
+      "ledger_label_bit_exact_pct": [
+        100.0,
+        100.0,
+        100.0,
+        100.0,
+        100.0
+      ],
+      "gate_v1_status": [
+        "accepted",
+        "accepted",
+        "rejected",
+        "accepted",
+        "rejected"
+      ],
+      "gate_v1_commits": 3,
+      "wall_clock_s": 211.1,
+      "configured_cost_estimate_usd": 1.5
+    }
+  },
+  "inputs_sha256": {
+    "task4/metrics.json": "8fce14934b1371f05279b284299ca3eb18c843ddab50895512e25f2dff1f4f7a",
+    "task4/naive_step1.png": "c63df8de26128962bdacc0fe24553712a5fd740323f2a669deb3e3b4e633dc0f",
+    "task4/naive_step2.png": "ef74814bbb349b6cd359d6563002f8facad24d4f59114a440503fa069c404c58",
+    "task4/naive_step3.png": "43d5a2dbe53ce1debdf983bb27bccfc47216c162e5f3ce702203e744faaa7894",
+    "task4/naive_step4.png": "87d822764d6e886bb56b4552e832a297cb85b4675a1c8723b33bd793a72c3114",
+    "task4/naive_step5.png": "e7b65c5e5bde264f70f915db640759c3cfac56beb0bf4b77affcd0f148f59d9c",
+    "task4_nano/metrics.json": "862a4a2a3b81ff71a691e4b9f24fd59012faaa24142699089ed0afbbf0041648",
+    "task4_nano/naive_step1.png": "4c9c278b746ef6aaa781a8fb34b35ac42d0543b4d780039bb123cb09209a667a",
+    "task4_nano/naive_step2.png": "2df65b3f56855b142768293748fd737b0561c7400f5623b9703b07736cffb6e9",
+    "task4_nano/naive_step3.png": "f12f130d59f5572c5f8e88433ee0a322aa65388154d89b71fd2494b06dd1f067",
+    "task4_nano/naive_step4.png": "46cb5523379f59683a0f1f4ef04a64d26e7dec481764065aed2770b1c66bbee8",
+    "task4_nano/naive_step5.png": "4e2d0382d34af2a985f6b13d9a55811bedb57458c7f4b7ba8d404952e37290bc"
+  },
+  "supported_findings": [
+    "After one naive full-frame edit, protected-label byte exactness is 0.619369% for gpt-image-2 and 0.281532% for nano-banana-pro.",
+    "The ledger label is 100% byte-exact for both editors because pixels outside each declared support are copied forward.",
+    "Gate v1 commits 4/5 gpt-image-2 candidates and 3/5 nano-banana-pro candidates; the latter has two below-threshold target-change rejections."
+  ],
+  "manual_visual_audit": {
+    "artifact": "model_comparison_label.png",
+    "observation": "Nano-banana-pro keeps the label spatially aligned and has higher SSIM, yet its letterforms visibly diverge from the original across the chain. Gpt-image-2 moves and eventually clips the label in this fixed crop.",
+    "metric_implication": "SSIM alone cannot certify text identity. OCR would be a necessary-not-sufficient check: misspelling can fail, but correct spelling cannot certify typography.",
+    "not_claimed": "No OCR score, independent human rating, or general model ranking."
+  },
+  "limitations": "The editors are non-deterministic and were each sampled once. Saved broad-region metrics are excluded here because rejected-turn union bookkeeping differed in the historical receipts. Cost values are configured estimates, not per-run invoices."
+}

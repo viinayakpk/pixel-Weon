@@ -1,0 +1,144 @@
+{
+  "generation": "p2_constrained.png",
+  "target_box": [
+    533,
+    771,
+    612,
+    808
+  ],
+  "logo_box_in_packshot": [
+    793,
+    1309,
+    1091,
+    1448
+  ],
+  "asset": {
+    "components_total": 18,
+    "components_kept": 7,
+    "kept_areas": [
+      141,
+      139,
+      128,
+      128,
+      123,
+      79,
+      72
+    ],
+    "expected": 7,
+    "matches_expected": true
+  },
+  "conditions": {
+    "A_model_only": {
+      "fidelity": {
+        "stroke_iou": 0.2127,
+        "ink_pct_ref": 10.34,
+        "ink_pct_test": 10.92,
+        "ink_ratio": 1.056,
+        "mark_colour_delta_e": 6.03,
+        "orb_inliers": 0,
+        "orb_matches": 0
+      },
+      "certificate": {
+        "commit": false,
+        "status": "rejected",
+        "checks": {
+          "mark_geometry": {
+            "verdict": "fail",
+            "detail": "stroke IoU 0.213 vs brand mark",
+            "value": 0.2127
+          },
+          "mark_ink_area": {
+            "verdict": "pass",
+            "detail": "foreground-area ratio 1.056 (1.0 = equal binarised area; not stroke thickness)",
+            "value": 1.056
+          },
+          "mark_colour": {
+            "verdict": "pass",
+            "detail": "mark colour dE 6.03",
+            "value": 6.03
+          },
+          "photographic_naturalness": {
+            "verdict": "unknown",
+            "detail": "not evaluated in this stage; route to a separate human or calibrated specialist",
+            "value": null
+          }
+        }
+      }
+    },
+    "B_hard_alpha_graft": {
+      "fidelity": {
+        "stroke_iou": 0.6705,
+        "ink_pct_ref": 10.34,
+        "ink_pct_test": 10.43,
+        "ink_ratio": 1.008,
+        "mark_colour_delta_e": 8.15,
+        "orb_inliers": 0,
+        "orb_matches": 0
+      },
+      "certificate": {
+        "commit": false,
+        "status": "review",
+        "checks": {
+          "mark_geometry": {
+            "verdict": "pass",
+            "detail": "stroke IoU 0.670 vs brand mark",
+            "value": 0.6705
+          },
+          "mark_ink_area": {
+            "verdict": "pass",
+            "detail": "foreground-area ratio 1.008 (1.0 = equal binarised area; not stroke thickness)",
+            "value": 1.008
+          },
+          "mark_colour": {
+            "verdict": "pass",
+            "detail": "mark colour dE 8.15",
+            "value": 8.15
+          },
+          "photographic_naturalness": {
+            "verdict": "unknown",
+            "detail": "not evaluated in this stage; route to a separate human or calibrated specialist",
+            "value": null
+          }
+        }
+      }
+    },
+    "C_linear_relit_graft": {
+      "fidelity": {
+        "stroke_iou": 0.5112,
+        "ink_pct_ref": 10.34,
+        "ink_pct_test": 14.39,
+        "ink_ratio": 1.391,
+        "mark_colour_delta_e": 43.17,
+        "orb_inliers": 0,
+        "orb_matches": 0
+      },
+      "certificate": {
+        "commit": false,
+        "status": "rejected",
+        "checks": {
+          "mark_geometry": {
+            "verdict": "pass",
+            "detail": "stroke IoU 0.511 vs brand mark",
+            "value": 0.5112
+          },
+          "mark_ink_area": {
+            "verdict": "pass",
+            "detail": "foreground-area ratio 1.391 (1.0 = equal binarised area; not stroke thickness)",
+            "value": 1.391
+          },
+          "mark_colour": {
+            "verdict": "fail",
+            "detail": "mark colour dE 43.17",
+            "value": 43.17
+          },
+          "photographic_naturalness": {
+            "verdict": "unknown",
+            "detail": "not evaluated in this stage; route to a separate human or calibrated specialist",
+            "value": null
+          }
+        }
+      }
+    }
+  },
+  "figure": "rectified_compare.png"
+}

@@ -1,0 +1,101 @@
+{
+  "note": "Re-composite of already-paid-for pixels from turn 4. No API calls.",
+  "declared_box": [
+    580,
+    450,
+    690,
+    570
+  ],
+  "welt_polygon": [
+    [
+      584,
+      462
+    ],
+    [
+      648,
+      452
+    ],
+    [
+      652,
+      478
+    ],
+    [
+      580,
+      492
+    ]
+  ],
+  "baseline_shipped_in_task4_run": "support=box, collar=0 (the tan rectangle)",
+  "rows": [
+    {
+      "support": "box",
+      "collar_px": 0,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 100.0,
+      "boundary_gradient": 34.101,
+      "support_px": 13200
+    },
+    {
+      "support": "box",
+      "collar_px": 4,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 97.62,
+      "boundary_gradient": 27.372,
+      "support_px": 13200
+    },
+    {
+      "support": "box",
+      "collar_px": 8,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 94.14,
+      "boundary_gradient": 21.669,
+      "support_px": 13200
+    },
+    {
+      "support": "box",
+      "collar_px": 12,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 90.22,
+      "boundary_gradient": 20.133,
+      "support_px": 13200
+    },
+    {
+      "support": "welt_polygon",
+      "collar_px": 0,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 100.0,
+      "boundary_gradient": 50.817,
+      "support_px": 2001
+    },
+    {
+      "support": "welt_polygon",
+      "collar_px": 4,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 88.84,
+      "boundary_gradient": 38.13,
+      "support_px": 2001
+    },
+    {
+      "support": "welt_polygon",
+      "collar_px": 8,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 75.34,
+      "boundary_gradient": 26.429,
+      "support_px": 2001
+    },
+    {
+      "support": "welt_polygon",
+      "collar_px": 12,
+      "exterior_bit_exact_pct": 100.0,
+      "retained_delta_pct": 61.36,
+      "boundary_gradient": 22.816,
+      "support_px": 2001
+    }
+  ],
+  "caveats": [
+    "boundary_gradient is a seam DIAGNOSTIC, not a perceptual metric.",
+    "retained_delta_pct falls as the collar grows: that is the cost of the tradeoff.",
+    "exterior_bit_exact_pct is 100% in every condition BY CONSTRUCTION (inward-only).",
+    "The welt polygon was traced by hand from the original; it is not segmentation.",
+    "n=1 edit on 1 image."
+  ]
+}

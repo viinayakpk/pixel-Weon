@@ -1,0 +1,62 @@
+[
+  {
+    "key": "mark_fidelity",
+    "q": "Which mark reproduces the REFERENCE letterforms more faithfully?",
+    "a": "cond_A_model_only_rectified.png",
+    "b": "cond_B_hard_alpha_graft_rectified.png",
+    "truth": "cond_B_hard_alpha_graft_rectified.png",
+    "swap": true,
+    "answer": "LEFT",
+    "chosen_file": "cond_B_hard_alpha_graft_rectified.png"
+  },
+  {
+    "key": "naturalness",
+    "q": "Which looks more like an unedited photograph (less digitally pasted)?",
+    "a": "cond_A_model_only.png",
+    "b": "cond_B_hard_alpha_graft.png",
+    "truth": null,
+    "swap": true,
+    "answer": "LEFT",
+    "chosen_file": "cond_B_hard_alpha_graft.png"
+  },
+  {
+    "key": "naturalness",
+    "q": "Which looks more like an unedited photograph (less digitally pasted)?",
+    "a": "cond_B_hard_alpha_graft.png",
+    "b": "cond_C_linear_relit_graft.png",
+    "truth": null,
+    "swap": true,
+    "answer": "LEFT",
+    "chosen_file": "cond_C_linear_relit_graft.png"
+  },
+  {
+    "key": "mark_fidelity",
+    "q": "Which mark reproduces the REFERENCE letterforms more faithfully?",
+    "a": "cond_A_model_only_rectified.png",
+    "b": "cond_B_hard_alpha_graft_rectified.png",
+    "truth": "cond_B_hard_alpha_graft_rectified.png",
+    "swap": false,
+    "answer": "RIGHT",
+    "chosen_file": "cond_B_hard_alpha_graft_rectified.png"
+  },
+  {
+    "key": "naturalness",
+    "q": "Which looks more like an unedited photograph (less digitally pasted)?",
+    "a": "cond_B_hard_alpha_graft.png",
+    "b": "cond_C_linear_relit_graft.png",
+    "truth": null,
+    "swap": false,
+    "answer": "LEFT",
+    "chosen_file": "cond_B_hard_alpha_graft.png"
+  },
+  {
+    "key": "naturalness",
+    "q": "Which looks more like an unedited photograph (less digitally pasted)?",
+    "a": "cond_A_model_only.png",
+    "b": "cond_B_hard_alpha_graft.png",
+    "truth": null,
+    "swap": false,
+    "answer": "RIGHT",
+    "chosen_file": "cond_B_hard_alpha_graft.png"
+  }
+]

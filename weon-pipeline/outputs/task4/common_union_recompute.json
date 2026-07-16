@@ -1,0 +1,93 @@
+{
+  "why": "Corrects an apples-to-apples error: the original run scored the naive arm over all attempted supports and the ledger arm over its ACCEPTED union only. After turn 3 was rejected those are different regions.",
+  "rows": [
+    {
+      "turn": 1,
+      "outside_union_px": 984500,
+      "union_definition": "cumulative union of all ATTEMPTED supports (same for both arms)",
+      "naive": {
+        "outside_bit_exact_pct": 0.6534,
+        "outside_ssim": 0.8656,
+        "label_bit_exact_pct": 0.6194,
+        "label_ssim": 0.5552
+      },
+      "ledger": {
+        "outside_bit_exact_pct": 100.0,
+        "outside_ssim": 1.0,
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0
+      }
+    },
+    {
+      "turn": 2,
+      "outside_union_px": 955800,
+      "union_definition": "cumulative union of all ATTEMPTED supports (same for both arms)",
+      "naive": {
+        "outside_bit_exact_pct": 0.0662,
+        "outside_ssim": 0.8235,
+        "label_bit_exact_pct": 0.1126,
+        "label_ssim": 0.3642
+      },
+      "ledger": {
+        "outside_bit_exact_pct": 100.0,
+        "outside_ssim": 1.0,
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0
+      }
+    },
+    {
+      "turn": 3,
+      "outside_union_px": 946800,
+      "union_definition": "cumulative union of all ATTEMPTED supports (same for both arms)",
+      "naive": {
+        "outside_bit_exact_pct": 0.0185,
+        "outside_ssim": 0.762,
+        "label_bit_exact_pct": 0.0113,
+        "label_ssim": 0.1718
+      },
+      "ledger": {
+        "outside_bit_exact_pct": 100.0,
+        "outside_ssim": 1.0,
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0
+      }
+    },
+    {
+      "turn": 4,
+      "outside_union_px": 933600,
+      "union_definition": "cumulative union of all ATTEMPTED supports (same for both arms)",
+      "naive": {
+        "outside_bit_exact_pct": 0.0049,
+        "outside_ssim": 0.725,
+        "label_bit_exact_pct": 0.0225,
+        "label_ssim": 0.1335
+      },
+      "ledger": {
+        "outside_bit_exact_pct": 100.0,
+        "outside_ssim": 1.0,
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0
+      }
+    },
+    {
+      "turn": 5,
+      "outside_union_px": 922050,
+      "union_definition": "cumulative union of all ATTEMPTED supports (same for both arms)",
+      "naive": {
+        "outside_bit_exact_pct": 0.0027,
+        "outside_ssim": 0.6898,
+        "label_bit_exact_pct": 0.0338,
+        "label_ssim": 0.1307
+      },
+      "ledger": {
+        "outside_bit_exact_pct": 100.0,
+        "outside_ssim": 1.0,
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0
+      }
+    }
+  ],
+  "note_on_the_headline": "The protected-label numbers are unaffected \u2014 the label mask is declared up front and is never part of any union. 0.62% / 0.555 at turn 1 stand as reported.",
+  "note_on_the_ledger_arm": "Under the ATTEMPTED union the ledger's outside region now includes edit 3's box, which the ledger never wrote because it rejected that turn. Those pixels are therefore still byte-identical, which is why the ledger's figure does not move: refusing to write is preservation.",
+  "not_a_single_variable_ablation": "This is an end-to-end strategy comparison, not a clean ablation: the naive arm receives the full frame, the ledger arm receives a crop. Field of view, scale and context all differ."
+}

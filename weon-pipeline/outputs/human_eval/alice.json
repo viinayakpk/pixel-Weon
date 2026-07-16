@@ -1,0 +1,56 @@
+{
+  "rater": "alice",
+  "when": "2026-07-16T19:57:01",
+  "sides_flipped": false,
+  "responses": [
+    {
+      "id": "q1_control",
+      "answer": "LEFT",
+      "sides_flipped": false,
+      "chose": "reference",
+      "truth": "reference",
+      "correct": true
+    },
+    {
+      "id": "q2_fidelity",
+      "answer": "RIGHT",
+      "sides_flipped": false,
+      "chose": "B_graft",
+      "truth": "B_graft",
+      "correct": true
+    },
+    {
+      "id": "q3_b_acceptable",
+      "answer": "ACCEPT",
+      "sides_flipped": false
+    },
+    {
+      "id": "q4_b_vs_c",
+      "answer": "RIGHT",
+      "sides_flipped": false,
+      "chose": "C_relit",
+      "truth": null
+    },
+    {
+      "id": "q5_task4_semantic",
+      "answer": "YES",
+      "sides_flipped": false
+    }
+  ],
+  "inputs_sha12": {
+    "asset_arigato.png": "81eec036d7e9",
+    "cond_A_model_only_rectified.png": "e2ec23407dd2",
+    "cond_B_hard_alpha_graft_rectified.png": "a11190b6af39"
+  },
+  "rater_identity": {
+    "who": "the project author",
+    "blind_to": "which side each condition was on (LEFT/RIGHT assignment)",
+    "NOT_blind_to": "the project's hypothesis, or which conditions exist",
+    "why_it_matters": "This is an author pilot, not a disinterested rater. 'alice' is the example name from the harness docs, not a third party. It does not establish production naturalness; it is a sanity check with n=1."
+  },
+  "notable": {
+    "q5_contradicted_the_report": "The rater answered YES (turn 4 satisfies 'tan canvas pocket'), contradicting the earlier report. A post-hoc changed-pixel colour diagnostic passes where the predeclared whole-box diagnostic fails, but its mask is derived from the output and the threshold is uncalibrated. The disagreement leaves semantic correctness unresolved; the original answer is preserved.",
+    "q4_disagreed_with_the_metric": "The rater preferred C over B on naturalness. C is the condition the deterministic gate REJECTED on colour (dE 43.17). A human eye and the metric disagree about which looks better; n=1 cannot adjudicate.",
+    "q5_was_not_re_asked": "After the contradiction was pointed out, re-asking would have been anchored on the 'expected' answer. The original unprimed response stands."
+  }
+}

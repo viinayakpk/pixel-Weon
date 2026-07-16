@@ -1,0 +1,32 @@
+{
+  "resample_only": [
+    {
+      "round_trip": "900x1125 -> 1024x1024 -> back",
+      "label_bit_exact_pct": 33.55,
+      "label_ssim": 0.9817,
+      "whole_image_ssim": 0.9959
+    },
+    {
+      "round_trip": "900x1125 -> 1049x1499 -> back",
+      "label_bit_exact_pct": 58.61,
+      "label_ssim": 0.9981,
+      "whole_image_ssim": 0.9991
+    },
+    {
+      "round_trip": "900x1125 -> 1536x1536 -> back",
+      "label_bit_exact_pct": 74.09,
+      "label_ssim": 0.9993,
+      "whole_image_ssim": 0.9995
+    }
+  ],
+  "observed_naive_turn1": {
+    "label_bit_exact_pct": 0.62,
+    "label_ssim": 0.555,
+    "untouched_ssim": 0.866
+  },
+  "worst_resample_label_ssim_loss": 0.0183,
+  "observed_label_ssim_loss": 0.445,
+  "observed_loss_vs_resample_loss_ratio": 24.3,
+  "lowest_resample_bit_exact_pct": 33.55,
+  "conclusion": "Resampling alone leaves 33-74% of label pixels byte-identical and costs at most 0.0183 SSIM. Observed naive turn 1 is 0.62% and a loss of 0.4450 (24x larger). The tested resampling paths are too small to explain the observed gap. This does not exclude every possible harness effect."
+}

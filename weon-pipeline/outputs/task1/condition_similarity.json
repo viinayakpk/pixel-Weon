@@ -1,0 +1,16 @@
+{
+  "why": "How similar are the conditions the human and the VLM judge were asked to separate?",
+  "A_vs_B": {
+    "whole_image_ssim": 0.9991,
+    "pixels_byte_identical_pct": 99.91,
+    "pixels_differing_pct": 0.0844,
+    "difference_bbox_pct_of_frame": 0.243
+  },
+  "B_vs_C": {
+    "whole_image_ssim": 0.9995,
+    "pixels_byte_identical_pct": 99.963,
+    "pixels_differing_pct": 0.0345,
+    "difference_bbox_pct_of_frame": 0.171
+  },
+  "conclusion": "A and B differ in 0.084% of pixels and score 0.9991 whole-image SSIM, yet one carries the brand's real mark and the other a fabricated one. Global metrics and holistic VLM judges are structurally blind to a signal this small; region-scoped geometry separates the same pair 0.213 vs 0.670. This is why the protected region, not the picture, is what gets measured."
+}

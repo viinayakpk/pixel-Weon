@@ -1,0 +1,23 @@
+provider=openrouter editor=gemini-3.1-flash-image base=(1125, 900, 3)
+5 edits x 2 strategies = 10 calls
+
+[A] naive chaining (previous output -> next input)
+  turn 1: accepted  label_bitexact=  0.25% label_ssim=0.885 outside_bitexact=  2.88%
+  turn 2: accepted  label_bitexact=  0.03% label_ssim=0.858 outside_bitexact=  1.25%
+  turn 3: accepted  label_bitexact=  0.05% label_ssim=0.826 outside_bitexact=  0.70%
+  turn 4: accepted  label_bitexact=  0.01% label_ssim=0.794 outside_bitexact=  0.51%
+  turn 5: accepted  label_bitexact=  0.01% label_ssim=0.757 outside_bitexact=  0.21%
+
+[B] pixel edit ledger (declared mask, crop edit, composite accepted pixels)
+  turn 1: rejected  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=15.0; context_ssim=0.534 <min (damaged protected content)
+  turn 2: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=11.0; context_ssim=0.956
+  turn 3: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=12.4; context_ssim=0.642
+  turn 4: rejected  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=73.8; context_ssim=0.502 <min (damaged protected content)
+  turn 5: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=30.7; context_ssim=0.816
+
+wrote C:\Users\vinay\weon project\weon-pipeline\outputs\task4_g31/metrics.json  |  128.9s  |  $0.6

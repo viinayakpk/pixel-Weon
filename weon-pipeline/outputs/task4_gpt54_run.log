@@ -1,0 +1,23 @@
+provider=openrouter editor=gpt-5.4-image-2 base=(1125, 900, 3)
+5 edits x 2 strategies = 10 calls
+
+[A] naive chaining (previous output -> next input)
+  turn 1: accepted  label_bitexact=  0.38% label_ssim=0.403 outside_bitexact=  1.02%
+  turn 2: accepted  label_bitexact=  0.06% label_ssim=0.169 outside_bitexact=  0.21%
+  turn 3: accepted  label_bitexact=  0.01% label_ssim=0.139 outside_bitexact=  0.02%
+  turn 4: accepted  label_bitexact=  0.00% label_ssim=0.132 outside_bitexact=  0.01%
+  turn 5: accepted  label_bitexact=  0.00% label_ssim=0.165 outside_bitexact=  0.00%
+
+[B] pixel edit ledger (declared mask, crop edit, composite accepted pixels)
+  turn 1: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=8.1; context_ssim=0.771
+  turn 2: rejected  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=11.2; context_ssim=0.548 <min (damaged protected content)
+  turn 3: error     label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+  turn 4: error     label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: HTTPSConnectionPool(host='openrouter.ai', port=443): Max retries exceeded with url: /api/v1/images (Caused by NameResolutionError("HTTPSConnection(host='openrouter.ai', port=443): Failed to resolve 'o
+  turn 5: error     label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: HTTPSConnectionPool(host='openrouter.ai', port=443): Max retries exceeded with url: /api/v1/images (Caused by NameResolutionError("HTTPSConnection(host='openrouter.ai', port=443): Failed to resolve 'o
+
+wrote C:\Users\vinay\weon project\weon-pipeline\outputs\task4_gpt54/metrics.json  |  411.0s  |  $0.21

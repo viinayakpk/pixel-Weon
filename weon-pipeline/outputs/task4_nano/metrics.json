@@ -1,0 +1,486 @@
+{
+  "editor": "nano-banana-pro",
+  "provider": "openrouter",
+  "base": "test_data/case1_model.jpg",
+  "protected": {
+    "brand_label": [
+      380,
+      198,
+      500,
+      272
+    ]
+  },
+  "edits": [
+    {
+      "instruction": "Change the lower left pocket flap to black leather.",
+      "box": [
+        200,
+        700,
+        400,
+        840
+      ]
+    },
+    {
+      "instruction": "Change the lower right pocket flap to black leather.",
+      "box": [
+        500,
+        700,
+        705,
+        840
+      ]
+    },
+    {
+      "instruction": "Add a small round brown leather patch on the left chest pocket.",
+      "box": [
+        235,
+        465,
+        325,
+        565
+      ]
+    },
+    {
+      "instruction": "Change the right chest pocket to tan canvas.",
+      "box": [
+        580,
+        450,
+        690,
+        570
+      ]
+    },
+    {
+      "instruction": "Change the left cuff to black ribbed knit.",
+      "box": [
+        70,
+        790,
+        180,
+        895
+      ]
+    }
+  ],
+  "naive": [
+    {
+      "idx": 0,
+      "instruction": "Change the lower left pocket flap to black leather.",
+      "intended_box": [
+        200,
+        700,
+        400,
+        840
+      ],
+      "crop": [
+        0,
+        0,
+        900,
+        1125
+      ],
+      "status": "accepted",
+      "reason": "",
+      "metrics": {
+        "target_roi_change": 11.664095238095237,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9346796311544653,
+          "psnr": 37.83569786542954,
+          "bit_exact_pct": 3.2900964956830876,
+          "eval_pixels": 984500
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.9346796311544653,
+          "psnr": 37.83569786542954,
+          "bit_exact_pct": 3.2900964956830876,
+          "eval_pixels": 984500
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 29.49385094642639,
+      "probe": {
+        "label_bit_exact_pct": 0.28153153153153154,
+        "label_ssim": 0.8863434067007588,
+        "outside_union_bit_exact_pct": 3.2900964956830876,
+        "outside_union_ssim": 0.9346796311544653,
+        "outside_union_psnr": 37.83569786542954
+      }
+    },
+    {
+      "idx": 1,
+      "instruction": "Change the lower right pocket flap to black leather.",
+      "intended_box": [
+        500,
+        700,
+        705,
+        840
+      ],
+      "crop": [
+        0,
+        0,
+        900,
+        1125
+      ],
+      "status": "accepted",
+      "reason": "",
+      "metrics": {
+        "target_roi_change": 10.84191637630662,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9698837079673708,
+          "psnr": 40.52754224503177,
+          "bit_exact_pct": 4.775462492376499,
+          "eval_pixels": 983800
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.9287420174467744,
+          "psnr": 35.67524030212415,
+          "bit_exact_pct": 2.2502615609960244,
+          "eval_pixels": 955800
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 16.977186918258667,
+      "probe": {
+        "label_bit_exact_pct": 0.04504504504504504,
+        "label_ssim": 0.8597836141863692,
+        "outside_union_bit_exact_pct": 2.2502615609960244,
+        "outside_union_ssim": 0.9287420174467744,
+        "outside_union_psnr": 35.67524030212415
+      }
+    },
+    {
+      "idx": 2,
+      "instruction": "Add a small round brown leather patch on the left chest pocket.",
+      "intended_box": [
+        235,
+        465,
+        325,
+        565
+      ],
+      "crop": [
+        0,
+        0,
+        900,
+        1125
+      ],
+      "status": "accepted",
+      "reason": "",
+      "metrics": {
+        "target_roi_change": 1.8668148148148147,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9705353121739464,
+          "psnr": 40.24966008322329,
+          "bit_exact_pct": 7.017538614848032,
+          "eval_pixels": 1003500
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.918475200441288,
+          "psnr": 33.70331953432554,
+          "bit_exact_pct": 1.5927334178284749,
+          "eval_pixels": 946800
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 18.226789712905884,
+      "probe": {
+        "label_bit_exact_pct": 0.02252252252252252,
+        "label_ssim": 0.8293867794142954,
+        "outside_union_bit_exact_pct": 1.5927334178284749,
+        "outside_union_ssim": 0.918475200441288,
+        "outside_union_psnr": 33.70331953432554
+      }
+    },
+    {
+      "idx": 3,
+      "instruction": "Change the right chest pocket to tan canvas.",
+      "intended_box": [
+        580,
+        450,
+        690,
+        570
+      ],
+      "crop": [
+        0,
+        0,
+        900,
+        1125
+      ],
+      "status": "accepted",
+      "reason": "",
+      "metrics": {
+        "target_roi_change": 44.65742424242424,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9579659865907342,
+          "psnr": 26.794095260284543,
+          "bit_exact_pct": 6.962473731612128,
+          "eval_pixels": 999300
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.8963564993061376,
+          "psnr": 25.911685305589018,
+          "bit_exact_pct": 0.9734361610968295,
+          "eval_pixels": 933600
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 18.59686040878296,
+      "probe": {
+        "label_bit_exact_pct": 0.02252252252252252,
+        "label_ssim": 0.7978196187078919,
+        "outside_union_bit_exact_pct": 0.9734361610968295,
+        "outside_union_ssim": 0.8963564993061376,
+        "outside_union_psnr": 25.911685305589018
+      }
+    },
+    {
+      "idx": 4,
+      "instruction": "Change the left cuff to black ribbed knit.",
+      "intended_box": [
+        70,
+        790,
+        180,
+        895
+      ],
+      "crop": [
+        0,
+        0,
+        900,
+        1125
+      ],
+      "status": "accepted",
+      "reason": "",
+      "metrics": {
+        "target_roi_change": 23.78883116883117,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9579177109986389,
+          "psnr": 27.557060058979047,
+          "bit_exact_pct": 6.6790548978470445,
+          "eval_pixels": 1000950
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.8736229884974599,
+          "psnr": 23.57218463903922,
+          "bit_exact_pct": 0.6549536359199609,
+          "eval_pixels": 922050
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 17.590101957321167,
+      "probe": {
+        "label_bit_exact_pct": 0.01126126126126126,
+        "label_ssim": 0.7634037720115738,
+        "outside_union_bit_exact_pct": 0.6549536359199609,
+        "outside_union_ssim": 0.8736229884974599,
+        "outside_union_psnr": 23.57218463903922
+      }
+    }
+  ],
+  "ledger": [
+    {
+      "idx": 0,
+      "instruction": "Change the lower left pocket flap to black leather.",
+      "intended_box": [
+        200,
+        700,
+        400,
+        840
+      ],
+      "crop": [
+        80,
+        616,
+        520,
+        924
+      ],
+      "status": "accepted",
+      "reason": "target_change=8.4; context_ssim=0.978",
+      "metrics": {
+        "target_roi_change": 8.418357142857143,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9999999999999999,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 984500
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.9999999999999999,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 984500
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 23.031899452209473,
+      "probe": {
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0,
+        "outside_union_bit_exact_pct": 100.0,
+        "outside_union_ssim": 0.9999999999999999,
+        "outside_union_psnr": null
+      }
+    },
+    {
+      "idx": 1,
+      "instruction": "Change the lower right pocket flap to black leather.",
+      "intended_box": [
+        500,
+        700,
+        705,
+        840
+      ],
+      "crop": [
+        377,
+        616,
+        828,
+        924
+      ],
+      "status": "accepted",
+      "reason": "target_change=8.3; context_ssim=0.976",
+      "metrics": {
+        "target_roi_change": 8.331451800232289,
+        "outside_mask_vs_prev": {
+          "ssim": 1.0,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 983800
+        },
+        "outside_union_vs_original": {
+          "ssim": 1.0,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 955800
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 14.921866416931152,
+      "probe": {
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0,
+        "outside_union_bit_exact_pct": 100.0,
+        "outside_union_ssim": 1.0,
+        "outside_union_psnr": null
+      }
+    },
+    {
+      "idx": 2,
+      "instruction": "Add a small round brown leather patch on the left chest pocket.",
+      "intended_box": [
+        235,
+        465,
+        325,
+        565
+      ],
+      "crop": [
+        181,
+        405,
+        379,
+        625
+      ],
+      "status": "rejected",
+      "reason": "target_change=3.9 <min (edit did nothing); context_ssim=0.989",
+      "metrics": {
+        "target_roi_change": 0.0,
+        "outside_mask_vs_prev": {
+          "ssim": 1.0,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 1003500
+        },
+        "outside_union_vs_original": {
+          "ssim": 1.0,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 955800
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 20.727314710617065,
+      "probe": {
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0,
+        "outside_union_bit_exact_pct": 100.0,
+        "outside_union_ssim": 1.0,
+        "outside_union_psnr": null
+      }
+    },
+    {
+      "idx": 3,
+      "instruction": "Change the right chest pocket to tan canvas.",
+      "intended_box": [
+        580,
+        450,
+        690,
+        570
+      ],
+      "crop": [
+        514,
+        378,
+        756,
+        642
+      ],
+      "status": "accepted",
+      "reason": "target_change=50.8; context_ssim=0.901",
+      "metrics": {
+        "target_roi_change": 50.800126262626264,
+        "outside_mask_vs_prev": {
+          "ssim": 0.9999999999999999,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 999300
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.9999999999999999,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 942600
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 14.921272993087769,
+      "probe": {
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0,
+        "outside_union_bit_exact_pct": 100.0,
+        "outside_union_ssim": 0.9999999999999998,
+        "outside_union_psnr": null
+      }
+    },
+    {
+      "idx": 4,
+      "instruction": "Change the left cuff to black ribbed knit.",
+      "intended_box": [
+        70,
+        790,
+        180,
+        895
+      ],
+      "crop": [
+        4,
+        727,
+        246,
+        958
+      ],
+      "status": "rejected",
+      "reason": "target_change=4.5 <min (edit did nothing); context_ssim=0.893",
+      "metrics": {
+        "target_roi_change": 0.0,
+        "outside_mask_vs_prev": {
+          "ssim": 1.0,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 1000950
+        },
+        "outside_union_vs_original": {
+          "ssim": 0.9999999999999999,
+          "psnr": null,
+          "bit_exact_pct": 100.0,
+          "eval_pixels": 942600
+        }
+      },
+      "cost_usd": 0.15,
+      "latency_s": 20.377784967422485,
+      "probe": {
+        "label_bit_exact_pct": 100.0,
+        "label_ssim": 1.0,
+        "outside_union_bit_exact_pct": 100.0,
+        "outside_union_ssim": 0.9999999999999998,
+        "outside_union_psnr": null
+      }
+    }
+  ],
+  "wall_clock_s": 211.1,
+  "cost_usd_total": 1.5
+}

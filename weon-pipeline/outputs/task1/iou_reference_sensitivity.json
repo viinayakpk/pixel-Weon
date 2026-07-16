@@ -1,0 +1,18 @@
+{
+  "why": "The report quotes an alpha-grounded IoU as a robustness check on the headline diagnostic. It was previously asserted without being computed here; this persists it.",
+  "alpha_grounded_reference_mask": {
+    "A_vs_reference_iou": 0.2664,
+    "B_vs_reference_iou": 0.6176,
+    "note": "reference side = the stored asset alpha; test side = top-hat re-binarisation"
+  },
+  "symmetric_rebinarisation": {
+    "A_vs_reference_iou": 0.2127,
+    "B_vs_reference_iou": 0.6705,
+    "note": "both sides through the identical operator; this is what the report table reports"
+  },
+  "graft_is_not_bit_identical_to_reference": {
+    "B_bit_exact_pct_inside_reference_alpha": 0.0,
+    "note": "The graft is a geometric transform of the reference asset, not a copy of its pixels. Warping and resampling change every value. 'Known by construction' means known by PROVENANCE, not pixel identity."
+  },
+  "conclusion": "Direction holds under both reference definitions: A ~0.21-0.27, B ~0.62-0.67."
+}

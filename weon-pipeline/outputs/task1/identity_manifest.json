@@ -1,0 +1,134 @@
+{
+  "manifest": [
+    {
+      "id": "upper_arigato",
+      "material_mode": "albedo (gold on suede)",
+      "expected": 1,
+      "packshot_box": [
+        793,
+        1309,
+        1091,
+        1448
+      ],
+      "note": "the mark this pipeline extracts, warps and repairs"
+    },
+    {
+      "id": "midsole_arigato",
+      "material_mode": "relief (debossed rubber, same colour)",
+      "expected": 1,
+      "packshot_box": [
+        200,
+        1660,
+        700,
+        1810
+      ],
+      "note": "same colour as its substrate; legible through shadow; absent from the first local certificate"
+    }
+  ],
+  "timing": "Post-hoc audit built after observing the missing midsole mark; proposed as a pre-generation production step, not presented as a prospective experiment.",
+  "inputs_sha256": {
+    "packshot": "d4308b40e99058bfd4cf3c529f81122b3e5b89714e4ce9fac7d76be959ced237",
+    "p1_plain": "c6abcc83b8ecfe30667bdf911219c6ea796ee297efc85aa95c9ce42ebecda23b",
+    "p2_constrained": "95b9a2fce67d27892d828e009d98580965394e7fe9ee4fc8afabf4ce7b55e43b",
+    "cond_B": "a15cdd66a30473b53a6462ba9c5b9b31fdd462744163641dd20f4ee4457eb7e0"
+  },
+  "why": "The certificate declared one logo box. The product has two marks. This inventories both and reports what each image actually contains.",
+  "detector_failed": {
+    "what": "mark_energy was intended to indicate mark presence/absence per band.",
+    "evidence_it_failed": "p2_constrained midsole scores 18.12 while being visibly blank; p1_plain midsole scores 16.35 while visibly reading ARIGATO. Higher score for the absent mark. The band is dominated by tread pattern and the gum-sole edge.",
+    "consequence": "These numbers are NOT used as evidence. The finding below rests on direct visual inspection of the saved bands, which the reader can verify: manifest_p1_plain_midsole_arigato.png reads ARIGATO; manifest_p2_constrained_midsole_arigato.png is blank across its full width.",
+    "pattern": "Multiple attempted mark detectors responded to stitching or tread texture instead of the wordmark. In this case, detection and grounding are recurring bottlenecks rather than solved components."
+  },
+  "measurements_not_evidence": [
+    {
+      "image": "packshot",
+      "midsole_arigato": {
+        "band": [
+          150,
+          1650,
+          900,
+          1900
+        ],
+        "mark_energy": 4.006
+      },
+      "upper_arigato": {
+        "band": [
+          700,
+          1250,
+          1150,
+          1500
+        ],
+        "mark_energy": 21.6
+      }
+    },
+    {
+      "image": "p1_plain",
+      "midsole_arigato": {
+        "band": [
+          60,
+          820,
+          1000,
+          1010
+        ],
+        "mark_energy": 16.349
+      },
+      "upper_arigato": {
+        "band": [
+          450,
+          660,
+          700,
+          740
+        ],
+        "mark_energy": 21.82
+      }
+    },
+    {
+      "image": "p2_constrained",
+      "midsole_arigato": {
+        "band": [
+          60,
+          820,
+          1000,
+          1010
+        ],
+        "mark_energy": 18.118
+      },
+      "upper_arigato": {
+        "band": [
+          500,
+          760,
+          660,
+          820
+        ],
+        "mark_energy": 33.193
+      }
+    },
+    {
+      "image": "cond_B",
+      "midsole_arigato": {
+        "band": [
+          60,
+          820,
+          1000,
+          1010
+        ],
+        "mark_energy": 18.118
+      },
+      "upper_arigato": {
+        "band": [
+          500,
+          760,
+          660,
+          820
+        ],
+        "mark_energy": 29.351
+      }
+    }
+  ],
+  "finding": "The packshot and the PLAIN generation both retain two marks. The CONSTRAINED generation retains one: the debossed midsole ARIGATO is not visibly retained, and conditions A/B/C inherit that loss because they are all built from it. Verified visually \u2014 the midsole band is blank across its full width in p2 (manifest_p2_constrained_midsole_arigato.png) and legibly reads ARIGATO in p1.",
+  "possible_contributor_not_causal_proof": "The constrained prompt contains 'no other text', added to stop spurious lettering; the corresponding output lacks a legitimate second mark while the plain output keeps it. The constrained run also changes its reference inputs, and both are single stochastic samples, so this comparison does not isolate the phrase as the cause.",
+  "consequence": "Local mark fidelity improved (stroke IoU 0.213 -> 0.670 on the upper mark) while product-level instance completeness remains worse than the plain generation. The local metric could not detect this because its inventory declared one instance. Per-region optimisation therefore needs a prior identity-instance inventory.",
+  "connection_to_task4": "Both tasks expose declaration risk. Task 4 used an overly broad write support; Task 1 declared one instance for a product with two marks. A pipeline can only preserve and evaluate the constraints it declares.",
+  "material_note": "The two marks are different material modes on the SAME product: the upper is albedo (gold on suede), the midsole is relief (debossed rubber, no colour difference). The albedo/relief distinction measured on Beyond Nordic therefore motivates, but does not validate, material-aware representations.",
+  "limitation": "mark_energy failed as a presence indicator and is retained only as a negative result. Presence/absence was determined by direct inspection of the saved crops."
+}

@@ -1,0 +1,13 @@
+{
+  "why": "The predeclared whole-box colour check and an author-pilot judgement disagree. This post-hoc diagnostic investigates sensitivity to evaluation support; it cannot determine which verdict is correct.",
+  "declared_box_px": 13200,
+  "actually_changed_px": 5832,
+  "changed_fraction_of_box": 0.442,
+  "dE_whole_box": 36.1,
+  "dE_changed_patch_only": 21.3,
+  "gate_threshold": 25.0,
+  "finding": "The whole declared box gives dE 36.1, while the output-derived changed-pixel patch gives dE 21.3. The verdict is support-sensitive.",
+  "consequence": "Grounding affects both the pixels written and the region measured. Because the changed-pixel mask is derived from the output, it is circular as a primary evaluation support and is retained only as a post-hoc diagnostic.",
+  "caveats": "The dE threshold of 25 is hand-set and uncalibrated. The changed-pixel mask violates the experiment's predeclared-support rule. The patch mean is darker than the requested tan, material remains unverified, and the human evidence is one hypothesis-aware author. Semantic acceptability remains unresolved.",
+  "how_it_surfaced": "The author's side-obscured Q5 answer (YES) contradicted the earlier report and prompted this sensitivity check."
+}

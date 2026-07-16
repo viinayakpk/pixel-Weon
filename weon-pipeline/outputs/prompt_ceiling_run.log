@@ -1,0 +1,8 @@
+reference mark: {'ink_pct': 3.241, 'mean_stroke_width_px': 3.213, 'components': 12}
+
+  s1_plain         reused p1_plain.png      0.0s  (1484, 1060, 3)
+  s2_attributes    generated               54.4s  (1050, 1498, 3)
+  s3_negatives     generated              140.7s  (1484, 1060, 3)
+  s4_reference     reused p2_constrained.png   0.0s  (1484, 1060, 3)
+
+wrote C:\Users\vinay\weon project\weon-pipeline\outputs\task1/prompt_ceiling.json  (est. $0.16)

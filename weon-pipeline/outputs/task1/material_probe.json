@@ -1,0 +1,110 @@
+{
+  "arigato": {
+    "material": "foil/print on suede",
+    "source_box": [
+      793,
+      1309,
+      1091,
+      1448
+    ],
+    "albedo_contrast": {
+      "L_std": 20.925,
+      "L_p99_minus_p01": 92.069,
+      "b_std": 5.636,
+      "chroma_std": 5.896
+    },
+    "extraction": {
+      "raw_coverage_pct": 2.1,
+      "clean_coverage_pct": 1.96,
+      "components_total": 18,
+      "components_kept": 7,
+      "kept_areas": [
+        141,
+        139,
+        128,
+        128,
+        123,
+        79,
+        72
+      ],
+      "expected": 7,
+      "matches_expected": true,
+      "dropped_speckles": 11
+    },
+    "recomposition": {
+      "mean_abs_error": 1.186,
+      "mark_mean_abs_error": 19.937,
+      "mark_contrast_std": 72.214,
+      "mark_err_over_contrast": 0.276,
+      "p95_abs_error": 5.0,
+      "coverage_pct": 1.955,
+      "substrate_residual": 0.044
+    }
+  },
+  "beyond_nordic": {
+    "material": "tonal embroidery",
+    "source_box": [
+      578,
+      1457,
+      1156,
+      1763
+    ],
+    "albedo_contrast": {
+      "L_std": 10.429,
+      "L_p99_minus_p01": 58.593,
+      "b_std": 4.461,
+      "chroma_std": 4.595
+    },
+    "extraction": {
+      "raw_coverage_pct": 10.61,
+      "clean_coverage_pct": 10.31,
+      "components_total": 84,
+      "components_kept": 17,
+      "kept_areas": [
+        5403,
+        3073,
+        3029,
+        2330,
+        1615,
+        1511,
+        532,
+        224,
+        168,
+        166,
+        36,
+        36,
+        27,
+        26,
+        22,
+        21,
+        20
+      ],
+      "expected": null,
+      "matches_expected": true,
+      "dropped_speckles": 67
+    },
+    "recomposition": {
+      "mean_abs_error": 4.549,
+      "mark_mean_abs_error": 11.818,
+      "mark_contrast_std": 40.587,
+      "mark_err_over_contrast": 0.291,
+      "p95_abs_error": 31.0,
+      "coverage_pct": 10.312,
+      "substrate_residual": 0.048
+    }
+  },
+  "verdict": {
+    "albedo_contrast_ratio_Lstd": 2.01,
+    "coverage_ratio": 5.05,
+    "supported": [
+      "The foil mark has ~2x the albedo contrast of the tonal mark (L* std 20.93 vs 10.43), measured before any extraction.",
+      "The component-gap heuristic that lets us AUTOMATICALLY select 'the mark' works on the foil mark (18 components with a clean area gap 72 -> 12, leaving exactly the 7 letters) and has no such gap on the tonal mark (84 components, no principled cut, 'kept' count is arbitrary)."
+    ],
+    "not_supported": [
+      "That the extractor 'fails' on tonal embroidery. It does not: the alpha is visibly legible as BEYOND NORDIC. Relief CREATES luminance contrast via shadow, which is exactly what a top-hat responds to, so the method partially works.",
+      "Any claim from in-mark reconstruction error. It is confounded by contrast: the raw value is worse for the high-contrast foil mark. Use mark_err_over_contrast instead."
+    ],
+    "hypothesis_still_untested": "The category error is about what the extracted RGB MEANS, and it lives in RENDERING, not extraction. For foil, the RGB is albedo, so re-lighting it under a new scene is meaningful. For tonal embroidery, the RGB is the fabric's own colour carrying baked-in shadow from the packshot's light; warping that asset into a differently-lit target transplants shadows pointing the wrong way. Testing that requires rendering the tonal asset under a different illumination direction and measuring the resulting shading error. NOT DONE.",
+    "implication_if_confirmed": "Material type should select the mark's representation. Albedo marks: warp the asset. Relief marks: transfer geometry (height/normals) and shade with the target's own fabric colour and light. Only the first is implemented here."
+  }
+}

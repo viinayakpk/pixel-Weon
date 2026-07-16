@@ -1,0 +1,38 @@
+{
+  "masked_ssim_pathology": {
+    "fixture": "np.random.default_rng(1), 256x256x3 uint8; ROI [96:160,96:160] zeroed",
+    "roi_state": "completely destroyed",
+    "old_zero_and_average_ssim": 0.921626,
+    "new_roi_only_ssim": 4e-06,
+    "new_roi_bit_exact_pct": 0.0,
+    "new_roi_psnr_db": 4.775,
+    "note": "The old method averages SSIM over the whole image after zeroing the outside, so the identical black regions dominate and a destroyed ROI still scores near 1.0. Pinned by tests/test_metrics.py::test_destroyed_roi_cannot_score_near_perfect."
+  },
+  "hardened_gate_postmortem_on_turn4": {
+    "status": "POSTMORTEM REPLAY. The live ledger committed turn 4 using gate v1 (target pixel movement + context SSIM). This is gate v2 replayed against the saved artifact; it is not what ran.",
+    "gate_v1_outcome": "accepted (target_change=26.0, context_ssim=0.636)",
+    "gate_v2_decision": "rejected",
+    "gate_v2_checks": {
+      "preservation": {
+        "verdict": "pass",
+        "detail": "exterior byte-identical",
+        "value": 100.0
+      },
+      "instruction_colour": {
+        "verdict": "fail",
+        "detail": "target colour not reached (dE=36.4 > 25.0)",
+        "value": 36.43026180983858
+      },
+      "instruction_material": {
+        "verdict": "unknown",
+        "detail": "no specialist for material predicate 'canvas'",
+        "value": null
+      },
+      "boundary": {
+        "verdict": "fail",
+        "detail": "seam introduced (ring gradient x1.84)",
+        "value": 1.8419020511722677
+      }
+    }
+  }
+}

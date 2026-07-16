@@ -1,0 +1,59 @@
+{
+  "editor": "gpt-image-2",
+  "provider": "openrouter",
+  "reference_mark": {
+    "ink_pct": 3.241,
+    "mean_stroke_width_px": 3.213,
+    "components": 12
+  },
+  "vlm_spec": null,
+  "runs": [
+    {
+      "strategy": "s1_plain",
+      "note": "reused p1_plain.png",
+      "latency_s": 0.0,
+      "cost_usd_estimated": 0.0,
+      "prompt_chars": 156,
+      "used_reference_image": false,
+      "image": "ceiling_s1_plain.png"
+    },
+    {
+      "strategy": "s2_attributes",
+      "note": "generated",
+      "latency_s": 54.4,
+      "cost_usd_estimated": 0.08,
+      "prompt_chars": 374,
+      "used_reference_image": false,
+      "image": "ceiling_s2_attributes.png"
+    },
+    {
+      "strategy": "s3_negatives",
+      "note": "generated",
+      "latency_s": 140.7,
+      "cost_usd_estimated": 0.08,
+      "prompt_chars": 532,
+      "used_reference_image": false,
+      "image": "ceiling_s3_negatives.png"
+    },
+    {
+      "strategy": "s4_reference",
+      "note": "reused p2_constrained.png",
+      "latency_s": 0.0,
+      "cost_usd_estimated": 0.0,
+      "prompt_chars": 606,
+      "used_reference_image": true,
+      "image": "ceiling_s4_reference.png"
+    }
+  ],
+  "cost_usd_estimated_total": 0.16,
+  "next": "requires manual or scene-text grounding before a quantitative comparison",
+  "measurement_attempt": {
+    "goal": "Measure whether prompt strategies move mark stroke weight toward the brand's.",
+    "outcome": "ABANDONED \u2014 not measurable with an automated locator.",
+    "what_failed": "Each generation places the shoe differently, so the mark must be found per image. The automated locator defined a wordmark as 'a row of small, similar-sized, roughly collinear bright components'. That is also an exact description of a line of STITCHING. It locked onto the heel-collar seam in all four images, reporting 14-25 'letters' for a 7-letter mark, and produced stroke-width ratios (1.28 / 0.80 / 1.01 / 1.25) that straddle 1.0 and would have read as 'one prompt matched the brand exactly'.",
+    "why_it_is_reported": "The numbers were discarded, not published. They are recorded here because the failure is evidence for the report's main claim (section 7): grounding is the hard part. A generic detector cannot tell a wordmark from a seam, which is the same reason a hand-declared box did not correspond to the pocket in Task 4.",
+    "what_would_be_needed": "Text-specific detection (a scene-text detector or SAM-class segmentation), or hand-declared boxes per generation. Not attempted; out of budget for this pass.",
+    "what_survives": "The n=2 result stands on direct inspection at 8x (logo_zoom.png): a plain prompt and a prompt given the mark as a reference image PLUS explicit anti-restyling constraints both re-drew the mark in the wrong typeface. Two further strategies (attributes, negative constraints) were generated and are on disk; they were not measured."
+  },
+  "files_on_disk": "ceiling_s2_attributes.png and ceiling_s3_negatives.png only. s1/s4 were byte-identical copies of p1_plain.png / p2_constrained.png and were removed to avoid implying four independent generations."
+}

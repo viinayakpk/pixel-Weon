@@ -1,0 +1,39 @@
+{
+  "arigato": {
+    "material": "foil/print on suede",
+    "polarity": {
+      "pct_brighter": 88.27,
+      "pct_darker": 9.38,
+      "mean_residual": 92.463,
+      "mean_abs_residual": 95.246,
+      "unipolarity": 0.971,
+      "dark_to_bright_ratio": 0.106
+    },
+    "light": {
+      "dominant_angle_deg": -147.2,
+      "directional_coherence": 0.67
+    }
+  },
+  "beyond_nordic": {
+    "material": "tonal embroidery",
+    "polarity": {
+      "pct_brighter": 65.71,
+      "pct_darker": 29.68,
+      "mean_residual": 20.145,
+      "mean_abs_residual": 38.212,
+      "unipolarity": 0.527,
+      "dark_to_bright_ratio": 0.452
+    },
+    "light": {
+      "dominant_angle_deg": -135.0,
+      "directional_coherence": 0.374
+    }
+  },
+  "verdict": {
+    "unipolarity_foil": 0.971,
+    "unipolarity_tonal": 0.527,
+    "dark_ratio_foil": 0.106,
+    "dark_ratio_tonal": 0.452,
+    "interpretation": "If the foil mark is unipolar (mostly brighter than its substrate) and the tonal mark is bipolar (paired bright and dark lobes with a coherent direction), then the tonal mark's pixels encode the packshot's LIGHT, not the brand's COLOUR. Warping those pixels into a differently-lit scene transplants a shadow pattern oriented to the wrong light source."
+  }
+}

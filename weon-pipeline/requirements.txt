@@ -1,0 +1,13 @@
+# Tested with Python 3.12. Core offline evaluation and evidence generation.
+numpy>=1.26
+Pillow>=10
+opencv-python-headless>=4.9
+scikit-image>=0.22
+matplotlib>=3.8
+pytest>=8
+python-dotenv>=1.0
+requests>=2.31
+
+# Optional LPIPS diagnostic (not used by the submitted experiments):
+# lpips>=0.1.4
+# torch>=2.2

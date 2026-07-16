@@ -1,0 +1,23 @@
+provider=openrouter editor=nano-banana-pro base=(1125, 900, 3)
+5 edits x 2 strategies = 10 calls
+
+[A] naive chaining (previous output -> next input)
+  turn 1: accepted  label_bitexact=  0.28% label_ssim=0.886 outside_bitexact=  3.29%
+  turn 2: accepted  label_bitexact=  0.05% label_ssim=0.860 outside_bitexact=  2.25%
+  turn 3: accepted  label_bitexact=  0.02% label_ssim=0.829 outside_bitexact=  1.59%
+  turn 4: accepted  label_bitexact=  0.02% label_ssim=0.798 outside_bitexact=  0.97%
+  turn 5: accepted  label_bitexact=  0.01% label_ssim=0.763 outside_bitexact=  0.65%
+
+[B] pixel edit ledger (declared mask, crop edit, composite accepted pixels)
+  turn 1: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=8.4; context_ssim=0.978
+  turn 2: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=8.3; context_ssim=0.976
+  turn 3: rejected  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=3.9 <min (edit did nothing); context_ssim=0.989
+  turn 4: accepted  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=50.8; context_ssim=0.901
+  turn 5: rejected  label_bitexact=100.00% label_ssim=1.000 outside_bitexact=100.00%
+           gate: target_change=4.5 <min (edit did nothing); context_ssim=0.893
+
+wrote C:\Users\vinay\weon project\weon-pipeline\outputs\task4_nano/metrics.json  |  211.1s  |  $1.5

@@ -1,0 +1,9 @@
+# Exact versions in the tested offline QA environment. Optional fal-client is not included.
+matplotlib==3.11.0
+numpy==2.4.5
+opencv-python-headless==5.0.0.93
+pillow==12.2.0
+pytest==9.1.1
+python-dotenv==1.2.2
+requests==2.34.2
+scikit-image==0.26.0
