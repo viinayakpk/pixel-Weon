@@ -1,2 +1,0 @@
-# Optional fal.ai backend only. OpenRouter uses requests from requirements.txt.
-fal-client>=0.4
