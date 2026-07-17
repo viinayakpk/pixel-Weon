@@ -1,18 +1,18 @@
-# Constraint-preserving image workflows  Tasks 1 and 4
+# Constraint-preserving image workflows: Tasks 1 and 4
 
-Read [`../REPORT.md`](../REPORT.md) first. This repository contains the black-box generation
-adapters, offline evaluation, saved paid evidence and reproducible figures used in that report.
+Read [`../REPORT.md`](../REPORT.md) first. This repository holds the black-box generation adapters,
+offline evaluation, saved paid evidence and reproducible figures behind that report.
 
 The submission makes two bounded claims:
 
-- **Task 4:** hard compositing guarantees byte-exact pixels outside a correctly declared local
-  write support. It does not guarantee grounding or semantic success inside that support.
+- **Task 4:** hard compositing guarantees byte-exact pixels outside an accurate local write support.
+  It guarantees neither grounding nor semantic success inside that support.
 - **Task 1:** deterministic repair improves one upper wordmark in one product-shot case, while a
   full identity inventory reveals that another legitimate wordmark is missing.
 
 ## Setup
 
-Tested with Python 3.12.
+I tested this with Python 3.12.
 
 ```bash
 python -m venv .venv
@@ -21,13 +21,13 @@ pip install -r requirements.txt
 copy .env.example .env     # Windows; optional, only for paid regeneration
 ```
 
-`requirements.pinned.txt` records the exact offline QA environment. OpenRouter needs only the core
-`requests` dependency; the optional fal.ai adapter additionally needs `pip install fal-client>=0.4`.
+`requirements.pinned.txt` records the exact offline QA environment. OpenRouter needs the core
+`requests` dependency alone; the optional fal.ai adapter also needs `pip install fal-client>=0.4`.
 
 `WEON_DRY_RUN=1` forces offline mode even if `.env` contains a key. Offline generation returns the
-input and reports N/A; it is never scored as a successful edit.
+input and reports N/A. The pipeline does not score that as a successful edit.
 
-## Reproduce the submitted evidence — offline and free
+## Reproduce the submitted evidence, offline and free
 
 Run from `weon-pipeline/`:
 
@@ -49,13 +49,13 @@ python run.py evidence
 
 The shipped Task 4 metrics are historical paid evidence. `recompute_common_union` corrects the
 main run's accepted-union/attempted-union comparison without making new calls. Cross-editor
-comparison deliberately uses only the protected-label probe, Gate-v1 status, latency and configured
-cost; it excludes historical broad-region fields. Future runs use cumulative attempted supports.
+comparison uses the protected-label probe, Gate-v1 status, latency and configured cost by design;
+it excludes historical broad-region fields. Future runs use cumulative attempted supports.
 
 ## Paid regeneration
 
-Canonical paid source frames and metrics are protected from accidental reruns. A paid rerun must
-use a new output name:
+The repo protects canonical paid source frames and metrics against reruns. A paid rerun must use a
+new output name:
 
 ```powershell
 $env:WEON_OUT_SUFFIX="replica"
@@ -69,25 +69,25 @@ python -m experiments.worn_certificate     # 6 VLM calls; needs worn_compare.jso
 python -m experiments.grounding_retest     # 1 VLM call
 ```
 
-The three specialist experiments refuse to run without a provider rather than emitting UNKNOWN for
-every case — a 0/4 that reports a missing API key, not a fact about the specialist.
+The three specialist experiments refuse to run without a provider instead of emitting UNKNOWN for
+each case. A 0/4 of that kind reports a missing API key and says nothing about the specialist.
 
 Do not expect a deterministic reproduction: the editors expose no usable seed. Promote a new run
-to canonical evidence only as a deliberate manual review step. Per-run costs are configured
-estimates. `outputs/actual_cost.json` records a $3.8512 whole-key provider charge, but its scope also
-includes smoke and failed/aborted activity, so it is not a per-experiment invoice.
+to canonical evidence as a deliberate manual review step. Per-run costs are configured estimates.
+`outputs/actual_cost.json` records a $3.8512 whole-key provider charge, but its scope also covers
+smoke and failed/aborted activity, so it does not serve as a per-experiment invoice.
 
 ## What ran versus what is a prototype
 
 - **Gate v1 ran live:** target-region pixel movement plus crop-context SSIM. It committed 4/5
-  candidates in the main run, 3/5 in each complete Google-editor ledger arm, and the gpt-5.4
-  ledger arm was incomplete because of network errors.
+  candidates in the main run and 3/5 in each complete Google-editor ledger arm. Network errors left
+  the gpt-5.4 ledger arm incomplete.
 - **Gate v2 is postmortem only:** preservation, instruction, material and boundary checks with
   UNKNOWN blocking automatic commit. `ledger.py` does not import it.
-- **Task 1 placement is manual:** the target quad is declared after inspecting the generated
-  product shot.
+- **Task 1 placement is manual:** I declare the target quad after inspecting the generated product
+  shot.
 - **Human evidence is an author pilot (`n=1`):** the harness supports independent raters and
-  append-only responses, but the submission does not claim independent validation.
+  append-only responses, but the submission claims no independent validation.
 
 ## Layout
 
@@ -102,14 +102,14 @@ outputs/        saved paid frames, receipts and report figures
 
 Important receipts:
 
-- `outputs/eval_receipt.json` — destroyed-ROI evaluation control and Gate-v2 replay
-- `outputs/task4/metrics.json` — original five-turn paid comparison
-- `outputs/task4/common_union_recompute.json` — apples-to-apples historical correction
-- `outputs/task4/model_comparison_4x.json` — four-editor protected-label audit and input hashes
-- `outputs/task1/task1_compare.json` — local A/B/C repair diagnostics
-- `outputs/task1/identity_manifest.json` — two-wordmark product audit
-- `outputs/human_eval/alice.json` — raw author-pilot response
-- `outputs/actual_cost.json` — whole-key provider usage, not experiment attribution
+- `outputs/eval_receipt.json`: destroyed-ROI evaluation control and Gate-v2 replay
+- `outputs/task4/metrics.json`: original five-turn paid comparison
+- `outputs/task4/common_union_recompute.json`: apples-to-apples historical correction
+- `outputs/task4/model_comparison_4x.json`: four-editor protected-label audit and input hashes
+- `outputs/task1/task1_compare.json`: local A/B/C repair diagnostics
+- `outputs/task1/identity_manifest.json`: two-wordmark product audit
+- `outputs/human_eval/alice.json`: raw author-pilot response
+- `outputs/actual_cost.json`: whole-key provider usage, not experiment attribution
 
-The report is authoritative. Exploratory thresholds are uncalibrated, and negative/superseded
-experiments are not headline evidence.
+The report is authoritative. I did not calibrate the exploratory thresholds, and
+negative/superseded experiments do not appear as headline evidence.
