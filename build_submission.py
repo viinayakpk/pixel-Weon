@@ -113,6 +113,16 @@ add(
     "outputs/spelling/c4_typography.png",
 )
 
+# Midsole relief probe: the manifest row the pixel metric could not score.
+add(
+    selected,
+    "outputs/midsole/midsole.json",
+    "outputs/midsole/k1_packshot_midsole.png",
+    "outputs/midsole/k2_blank_band.png",
+    "outputs/midsole/q1_a1_midsole.png",
+    "outputs/midsole/q2_a2_midsole.png",
+)
+
 # Grounding retest: the locator returned 2 of 4 pockets. Negative result, kept.
 add(
     selected,

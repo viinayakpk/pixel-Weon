@@ -30,6 +30,7 @@ Headline results:
 | Task 1 upper wordmark repair, product shot | stroke IoU **0.213 -> 0.670** | local geometry improved; full-product consistency did not |
 | Same repair, **worn** shot (§5) | stroke IoU **0.127 -> 0.749** | the model scores lower on the worn shot; the repair scores higher |
 | Spelling vs geometry on the same pixels (§5) | text **PASS**, IoU **0.1268 FAIL** -> **REJECTED** | one score would have averaged these into a meaningless number |
+| Relief mark the pixel metric failed on (§5) | VLM reads it: **PASS** on both worn shots, clean on a blank control | the two material modes need different *instruments*, not just renderers |
 | Automatic locator (§6) | **2 of 4** pockets, **0 px** overlap with either chest reading | it returns no signal of the omission; supports stay hand-declared |
 
 Two declaration failures showed up in concrete form. One Task 4 support ran broader than the pocket
@@ -190,6 +191,29 @@ Both verdicts hold on the same pixels. Spelling certifies the string and geometr
 identity; a blended score would average them into a number that carries neither. `B_cleared_graft`
 returns **review**: naturalness stays UNKNOWN, which blocks an automatic commit.
 
+The manifest's second ARIGATO — debossed into the midsole, the same colour as its substrate — was
+declared and unscored: the earlier automatic detector ranked a blank band above one that visibly
+reads ARIGATO. That detector keyed on colour and luminance structure, and a relief mark carries
+almost none; it is shading, not albedo. A VLM reads shape instead, so I put the same specialist on
+it ([receipt](weon-pipeline/outputs/midsole/midsole.json), 12 calls, controls first):
+
+| crop | expected | observed |
+|---|---|---|
+| the brand's own packshot deboss | PASS | PASS, `ARIGATO` |
+| **blank midsole rubber** | UNKNOWN | UNKNOWN, `UNREADABLE` |
+| a1 midsole | — | **PASS**, `ARIGATO` |
+| a2 midsole | — | **PASS**, `ARIGATO` |
+
+The blank-substrate control is the one that matters: it is the input class that broke the previous
+detector, and the specialist did **not** hallucinate the brand onto empty rubber. So the row is
+scored — **the relief instance survives in both worn generations**, and the tool that reads it is
+the one that ignores colour. That is the sharpest support the albedo-versus-relief split has: the
+two material modes did not just need different *renderers*, they needed different *instruments*.
+
+The check certifies **presence, never absence**: a transcription that reads nothing has failed to
+find a mark, which is not proof there is none. Four crops remain a probe. The certificate above
+predates this probe and still records `midsole_instance: UNKNOWN`; the resolution is the receipt.
+
 ## 6. Grounding: the locator omits, silently
 
 I declared each support by hand. That holds up for five known edits and fails at scale, so the
@@ -226,9 +250,8 @@ blocks my automation and does not benchmark Gemini.
   bit-exact against the reference.
 - The spelling specialist is a 4-input probe. No threshold, brand, font or resolution generalises.
 - I set the thresholds (IoU 0.35, SSIM 0.60, dE 25) by hand and did not calibrate them.
-- The midsole relief mark is declared and unscored: I have no working detector, and the earlier
-  attempt ranked a blank band above one that reads ARIGATO at 8× zoom. It sits in the manifest to
-  make its loss visible; the pipeline cannot check it.
+- The midsole relief mark is scored for **presence only** (§5), on 4 crops, by a VLM rather than a
+  pixel metric. The check cannot prove absence, and the pixel-metric detector for it stays broken.
 - Exact exterior preservation applies to local edits with correct supports. It does not extend to
   relighting or background replacement, and drift inside the support remains.
 - Human evidence is an author pilot at n=1.

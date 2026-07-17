@@ -1,0 +1,185 @@
+{
+  "question": "can a VLM score a relief mark that pixel metrics could not?",
+  "specialist": "google/gemini-2.5-flash",
+  "prompt": "This is a close crop of a garment or footwear photograph. Transcribe any brand text you can read in it, exactly as it appears, letter for letter.\nIf the text is too blurred, too small, or too distorted for you to read the letters with confidence, reply with exactly UNREADABLE. Do not guess a plausible brand name.\nReply with only the transcription, or only UNREADABLE. No explanation.",
+  "repeats": 3,
+  "protocol": "open transcription, compared in code; presence only, never absence",
+  "boxes_declared_by": "hand, off a coordinate grid, inspected before spending",
+  "crops": {
+    "k1_packshot_midsole": {
+      "kind": "control",
+      "expect": "PASS",
+      "tests": "the specialist reads the brand's own relief mark",
+      "box": [
+        200,
+        1660,
+        700,
+        1810
+      ],
+      "source": "packshot",
+      "input_sha12": "5efc765cada1",
+      "observed": "PASS",
+      "stable_across_repeats": true,
+      "runs": [
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.4,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.2,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.4,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        }
+      ],
+      "as_specified": true
+    },
+    "k2_blank_band": {
+      "kind": "control",
+      "expect": "UNKNOWN",
+      "tests": "blank rubber: the input class that broke the previous detector. Must not hallucinate the brand onto an empty substrate",
+      "box": [
+        420,
+        1125,
+        580,
+        1175
+      ],
+      "source": "a2",
+      "input_sha12": "be7b4716c627",
+      "observed": "UNKNOWN",
+      "stable_across_repeats": true,
+      "runs": [
+        {
+          "raw": "UNREADABLE",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "unknown",
+          "reason": "specialist abstained: no legible mark found (not proof of absence)"
+        },
+        {
+          "raw": "UNREADABLE",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "unknown",
+          "reason": "specialist abstained: no legible mark found (not proof of absence)"
+        },
+        {
+          "raw": "UNREADABLE",
+          "status": "ok",
+          "latency_s": 1.0,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "unknown",
+          "reason": "specialist abstained: no legible mark found (not proof of absence)"
+        }
+      ],
+      "as_specified": true
+    },
+    "q1_a1_midsole": {
+      "kind": "query",
+      "expect": null,
+      "tests": "does a1 retain the second, debossed instance?",
+      "box": [
+        80,
+        1030,
+        200,
+        1090
+      ],
+      "source": "a1",
+      "input_sha12": "0e52b85b376c",
+      "observed": "PASS",
+      "stable_across_repeats": true,
+      "runs": [
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 2.0,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.1,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        }
+      ]
+    },
+    "q2_a2_midsole": {
+      "kind": "query",
+      "expect": null,
+      "tests": "does a2 retain the second, debossed instance?",
+      "box": [
+        120,
+        1110,
+        280,
+        1180
+      ],
+      "source": "a2",
+      "input_sha12": "f80f18bc6754",
+      "observed": "PASS",
+      "stable_across_repeats": true,
+      "runs": [
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.0,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.6,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        },
+        {
+          "raw": "ARIGATO",
+          "status": "ok",
+          "latency_s": 1.2,
+          "cost_usd_estimated": 0.0015,
+          "verdict": "pass",
+          "reason": "transcribed 'ARIGATO': relief instance present"
+        }
+      ]
+    }
+  },
+  "k2_did_not_hallucinate": true,
+  "manifest_row": {
+    "attribute": "midsole_instance",
+    "was": "UNKNOWN \u2014 declared so its loss is visible, but no working detector",
+    "now": "a1=PASS, a2=PASS",
+    "controls_passed": true
+  },
+  "what_this_licenses": "Presence of the relief instance on these two paid generations, with a blank-substrate control that did not hallucinate the brand. It does NOT license absence detection: a transcription that reads nothing has failed to find a mark, which is not proof there is none. It does not license any claim about relief marks in general \u2014 4 crops is a probe.",
+  "cost_usd_estimated": 0.018
+}

@@ -88,8 +88,10 @@ not count as a pass.
 - One worn generation, one hand-declared quad, no replicates.
 - B is reference-**derived** rather than a pixel copy: the warp makes it 0% bit-exact against the
   reference.
-- The midsole relief mark is declared and unscored. This pipeline cannot represent or repair a
-  relief mark, and the earlier automatic detector scored a blank band above one that reads ARIGATO
-  at 8× zoom. It sits in the manifest to make its loss visible; the pipeline cannot check it.
+- The midsole relief mark is now scored for **presence only**, by the spelling specialist rather
+  than a pixel metric ([receipt](../midsole/midsole.json), and §5 of the report). Both worn
+  generations read `ARIGATO`; a blank-rubber control abstained instead of hallucinating the brand.
+  Presence is not absence, 4 crops is a probe, and this pipeline still cannot *repair* a relief
+  mark — only notice one.
 - I declared the quad by hand off a coordinate grid and did not locate it by matching the model's
   own re-drawn mark. Locating it from the output would make the measurement circular.
