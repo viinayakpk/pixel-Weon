@@ -1,7 +1,7 @@
-"""Image-edit clients for OpenRouter and fal, with a per-run budget guard.
+"""OpenRouter image-edit client.
 
-Routing follows whichever key is set (config.active_provider). No key → dry-run, which
-returns the base image unchanged so the pipeline is exercisable offline.
+No key → dry-run, which returns the base image unchanged so the pipeline stays exercisable
+offline. Dry-run output is reported as N/A and never scored as a successful edit.
 """
 from __future__ import annotations
 import os, io, base64
@@ -31,22 +31,17 @@ def _fetch(url: str) -> np.ndarray:
     return np.asarray(Image.open(io.BytesIO(r.content)).convert("RGB"))
 
 
-def edit(model_key: str, prompt: str, refs: list[np.ndarray],
-         seed: int | None = None) -> np.ndarray:
+def edit(model_key: str, prompt: str, refs: list[np.ndarray]) -> np.ndarray:
     """Instruction edit. refs[0] is the base; extra refs are conditioning (e.g. a packshot).
-    Region preservation is enforced downstream by our paste-back/graft, not a model mask."""
+
+    Region preservation is enforced downstream by our own paste-back/graft, never by a mask
+    handed to the model — that is the whole point of the ledger.
+    """
     model = config.MODELS[model_key]
-    provider = config.active_provider()
-    if provider == "dry-run":
+    if config.active_provider() == "dry-run":
         return refs[0]
-    return (_edit_openrouter if provider == "openrouter" else _edit_fal)(model, prompt, refs, seed)
 
-
-def _edit_openrouter(model, prompt, refs, seed) -> np.ndarray:
-    or_id = model.openrouter_id
-    if not or_id:
-        raise ValueError(f"{model.key} is not available on OpenRouter; set FAL_KEY to use it.")
-    payload = {"model": or_id, "prompt": prompt, "n": 1, "output_format": "png",
+    payload = {"model": model.openrouter_id, "prompt": prompt, "n": 1, "output_format": "png",
                "input_references": [{"type": "image_url", "image_url": {"url": _data_uri(r)}}
                                     for r in refs[: max(model.max_refs, 1)]]}
     r = requests.post("https://openrouter.ai/api/v1/images", json=payload, timeout=180,
@@ -57,13 +52,3 @@ def _edit_openrouter(model, prompt, refs, seed) -> np.ndarray:
     if item.get("b64_json"):
         return np.asarray(Image.open(io.BytesIO(base64.b64decode(item["b64_json"]))).convert("RGB"))
     return _fetch(item["url"]) if item.get("url") else refs[0]
-
-
-def _edit_fal(model, prompt, refs, seed) -> np.ndarray:
-    import fal_client
-    args = {"prompt": prompt, "image_urls": [_data_uri(r) for r in refs[: model.max_refs]]}
-    if seed is not None and model.true_seed:
-        args["seed"] = seed
-    res = fal_client.subscribe(model.endpoint, arguments=args, with_logs=False)
-    imgs = res.get("images") or []
-    return _fetch(imgs[0]["url"]) if imgs else refs[0]

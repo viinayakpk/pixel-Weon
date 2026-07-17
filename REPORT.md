@@ -4,9 +4,9 @@
 **Models:** four black-box image editors from OpenAI and Google via OpenRouter; no fine-tuning.  
 **Scope:** Task 4 has one five-edit naive chain per editor; Task 1 has two footwear cases, a product
 shot and a worn shot; no replicates.  
-**Cost:** the provider account charged **$3.8512** across all activity on the key, including smoke
+**Cost:** the provider account charged **$3.8646** across all activity on the key, including smoke
 tests, four paired Task 4 runs and aborted/failed calls, so I claim no experiment-specific invoice.
-Our own price table runs **9.3% low** against it ([receipt](weon-pipeline/outputs/actual_cost.json)).  
+Our own price table runs **9.6% low** against it ([receipt](weon-pipeline/outputs/actual_cost.json)).  
 **Code/evidence:** `weon-pipeline/`; 45 offline tests; headline values have saved JSON and images.
 
 ## 1. Decision summary

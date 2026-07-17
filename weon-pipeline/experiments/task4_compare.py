@@ -7,7 +7,7 @@ frame, while the ledger arm receives a contextual crop before hard compositing.
 The probe: the "A DAY'S MARCH" brand label is never targeted by any instruction. Whatever
 happens to it is, by definition, off-target degradation. We measure it per turn.
 
-Run:  python -m experiments.task4_compare            (uses OPENROUTER_API_KEY / FAL_KEY)
+Run:  python -m experiments.task4_compare            (uses OPENROUTER_API_KEY)
       WEON_DRY_RUN=1 python -m experiments.task4_compare   (offline; reports N/A)
 """
 from __future__ import annotations

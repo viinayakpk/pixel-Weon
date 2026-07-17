@@ -70,9 +70,9 @@ See [`weon-pipeline/README.md`](weon-pipeline/README.md).
 - I declared supports and placement by hand. The grounding retest measures why they stay that way.
 - I set the thresholds by hand and did not calibrate them.
 - Human evidence is an author pilot. No independent rater took part.
-- The provider billed **$3.8512** across all activity on the key, including smoke tests and aborted
+- The provider billed **$3.8646** across all activity on the key, including smoke tests and aborted
   calls. That figure covers the whole account rather than one experiment, and our own price table
-  runs 9.3% low against it.
+  runs 9.6% low against it.
 
 I used no photograph of a real person: the worn case renders a synthetic figure, per the brief. The
 brief put training, fine-tuning, UI and deployment out of scope, and I attempted none of them.

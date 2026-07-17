@@ -21,8 +21,8 @@ pip install -r requirements.txt
 copy .env.example .env     # Windows; optional, only for paid regeneration
 ```
 
-`requirements.pinned.txt` records the exact offline QA environment. OpenRouter needs the core
-`requests` dependency alone; the optional fal.ai adapter also needs `pip install fal-client>=0.4`.
+`requirements.pinned.txt` records the exact offline QA environment. Every paid call in this
+submission went through OpenRouter, which needs only the core `requests` dependency.
 
 `WEON_DRY_RUN=1` forces offline mode even if `.env` contains a key. Offline generation returns the
 input and reports N/A. The pipeline does not score that as a successful edit.
@@ -74,7 +74,7 @@ each case. A 0/4 of that kind reports a missing API key and says nothing about t
 
 Do not expect a deterministic reproduction: the editors expose no usable seed. Promote a new run
 to canonical evidence as a deliberate manual review step. Per-run costs are configured estimates.
-`outputs/actual_cost.json` records a $3.8512 whole-key provider charge, but its scope also covers
+`outputs/actual_cost.json` records a $3.8646 whole-key provider charge, but its scope also covers
 smoke and failed/aborted activity, so it does not serve as a per-experiment invoice.
 
 ## What ran versus what is a prototype

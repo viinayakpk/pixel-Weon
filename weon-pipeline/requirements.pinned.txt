@@ -1,4 +1,4 @@
-# Exact versions in the tested offline QA environment. Optional fal-client is not included.
+# Exact versions in the tested offline QA environment.
 matplotlib==3.11.0
 numpy==2.4.5
 opencv-python-headless==5.0.0.93

@@ -181,9 +181,7 @@ for name, path in files:
         text = path.read_text(encoding="utf-8", errors="replace")
         if re.search(r"sk-or-v1-[A-Za-z0-9_-]{20,}", text):
             raise RuntimeError(f"possible OpenRouter secret in {name}")
-        for match in re.finditer(
-            r"(?im)^\s*(OPENROUTER_API_KEY|FAL_KEY|FAL_API_KEY)\s*=\s*([^\s#]+)", text
-        ):
+        for match in re.finditer(r"(?im)^\s*(OPENROUTER_API_KEY)\s*=\s*([^\s#]+)", text):
             if match.group(2).strip() not in {"", "your-key-here", "YOUR_KEY_HERE"}:
                 raise RuntimeError(f"possible credential assignment in {name}")
 
